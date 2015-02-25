@@ -1,0 +1,66 @@
+@import 'bootstrap/mixins';
+
+// Variable defaults set by Wyrm
+@import 'wyrm/wyrm_core/wy_variables';
+
+// Wyrm core styles used in this theme
+@import 'wyrm/wyrm_core/mixin';
+@import 'wyrm/wyrm_core/alert';
+@import 'wyrm/wyrm_core/table';
+@import 'wyrm/wyrm_core/list';
+@import 'wyrm/wyrm_core/text';
+
+// Pygments styling
+@import 'wyrm/wyrm_addons/pygments/pygments';
+@import 'wyrm/wyrm_addons/pygments/pygments_manni';
+
+// Theme specific styles. These are likely the files you want to edit.
+@import 'sphinx_rtd_theme/theme_rst';
+
+h1, h2, h3, h4, h5, h6, dl dt {
+	.headerlink {
+		vertical-align: middle;
+		line-height: 1px;
+	}
+}
+
+.rst-content,
+.rst-sidebar {
+	color: #555;
+
+	h1, h2, h3, h4, h5, h6, dl dt {
+		color: #444;
+	}
+}
+
+.rst-content {
+	ul {
+		padding: 0;
+	}
+}
+
+.rst-sidebar {
+	font-size: 12px;
+
+	ul {
+		list-style: none;
+		padding-bottom: 1em;
+		padding-left: 1em;
+		li {
+			font-weight: bold;
+			margin-top: 4px;
+			a {
+				color: #777;
+				&:hover {
+					color: #222;
+				}
+			}
+			ul {
+				padding-bottom: 0;
+				li {
+					font-weight: normal;
+				}
+			}
+		}
+	}
+}

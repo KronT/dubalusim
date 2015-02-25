@@ -1,0 +1,128 @@
+/*
+* jQuery Mobile Framework
+* Copyright (c) jQuery Project
+* Dual licensed under the MIT (MIT-LICENSE.txt) and GPL (GPL-LICENSE.txt) licenses.
+* Note: Code is in draft form and is subject to change 
+*/
+
+/* links within "buttons" */
+a.ui-link-inherit { text-decoration: none !important; }
+
+/* Active class used as the "on" state across all themes */
+.ui-btn-active { @include linear-gradient(color-stops(#5393c5, #85bae4)); border: 1px solid #155678; background: #4596ce; font-weight: bold; color: #fff; cursor: pointer;  text-shadow: 0 -1px 1px #145072; text-decoration: none;  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#85bae4', EndColorStr='#5393c5')"; }
+.ui-btn-active a.ui-link-inherit {  color: #fff; }
+
+/* button inner top highlight */
+.ui-btn-inner { border-top: 1px solid #fff; border-color: rgba(255,255,255,.3);  }
+
+
+/* Container Corner radius */
+.ui-corner-tl { @include border-top-left-radius(.6em); }
+.ui-corner-tr { @include border-top-right-radius(.6em); }
+.ui-corner-bl { @include border-bottom-left-radius(.6em); }
+.ui-corner-br { @include border-bottom-right-radius(.6em); }
+.ui-corner-top { @include border-top-radius(.6em); }
+.ui-corner-bottom { @include border-bottom-radius(.6em); }
+.ui-corner-right { @include border-right-radius(.6em); }
+.ui-corner-left { @include border-left-radius(.6em); }
+.ui-corner-all { @include border-radius(.6em); }
+
+
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled { cursor: default !important; opacity: .3; }
+
+/* Icons
+----------------------------------*/
+/* .ui-icon { background-position: 50% 50%; background-repeat: no-repeat; background-color: #fff; background-color: rgba(0,0,0,.4); @include border-radius(9px); } */
+
+.ui-icon { background-image: image-url("jquery-mobile/icons-18-white.png"); background-repeat: no-repeat; background-color: #666; background-color: rgba(0,0,0,.4); @include border-radius(9px); }
+.ui-icon-disc { background-color: #666; background-color: rgba(0,0,0,.3); @include border-radius(9px); }
+
+/* alt color */
+.ui-icon-black { background-image: image-url("jquery-mobile/icons-18-black.png"); }
+.ui-icon-black-disc { background-color: #fff; background-color: rgba(255,255,255,.3); @include border-radius(9px); }
+
+/* retina */
+@media  screen and (-webkit-min-device-pixel-ratio: 2), screen and (max--moz-device-pixel-ratio: 2) {
+	.ui-icon { background-image: image-url("jquery-mobile/icons-36-white.png"); background-size: 558px 18px; }
+	.ui-icon-black { background-image: image-url("jquery-mobile/icons-36-black.png"); }
+}
+
+/*plus minus*/
+.ui-icon-plus { background-position: -0 0; }
+.ui-icon-minus { background-position: -36px 0; }
+
+/* delete/close */
+.ui-icon-delete { background-position: -72px 0; }
+
+/*arrows*/
+.ui-icon-arrow-r { background-position: -108px 0; }
+.ui-icon-arrow-l { background-position: -144px 0; }
+.ui-icon-arrow-u { background-position: -180px 0; }
+.ui-icon-arrow-d { background-position: -216px 0; }
+
+.ui-icon-check { background-position: -252px 0; }
+.ui-icon-gear { background-position: -288px 0; }
+.ui-icon-refresh { background-position: -324px 0; }
+.ui-icon-forward { background-position: -360px 0; }
+.ui-icon-back { background-position: -396px 0; }
+
+.ui-icon-grid { background-position: -432px 0; }
+.ui-icon-star { background-position: -468px 0; }
+.ui-icon-alert { background-position: -504px 0; }
+.ui-icon-info { background-position: -540px 0; }
+
+/*checks,radios*/
+.ui-icon-checkbox-off,
+.ui-icon-checkbox-on,
+.ui-icon-radio-off,
+.ui-icon-radio-on { background-color: transparent; @include border-radius(0); }
+
+.ui-icon-checkbox-off { background-image: image-url("jquery-mobile/form-check-off.png"); }
+.ui-icon-checkbox-on { background-image: image-url("jquery-mobile/form-check-on.png"); }
+.ui-icon-radio-off { background-image: image-url("jquery-mobile/form-radio-off.png"); }
+.ui-icon-radio-on { background-image: image-url("jquery-mobile/form-radio-on.png"); }
+
+.ui-icon-search { background-image: image-url("jquery-mobile/icon-search-black.png"); }
+
+/* loading icon */
+.ui-icon-loading { background-image: image-url("jquery-mobile/ajax-loader.png"); width: 40px; height: 40px; @include border-radius(20px); }
+
+/* btn Corner radius */
+.ui-btn-corner-tl { @include border-top-left-radius(1em); }
+.ui-btn-corner-tr { @include border-top-right-radius(1em); }
+.ui-btn-corner-bl { @include border-bottom-left-radius(1em); }
+.ui-btn-corner-br { @include border-bottom-right-radius(1em); }
+.ui-btn-corner-top { @include border-top-radius(1em); }
+.ui-btn-corner-bottom { @include border-bottom-radius(1em); }
+.ui-btn-corner-right { @include border-right-radius(1em); }
+.ui-btn-corner-left { @include border-left-radius(1em); }
+.ui-btn-corner-all { @include border-radius(1em); }
+
+/* radius clip */
+.ui-corner-tl, .ui-corner-tr, .ui-corner-bl, 
+.ui-corner-br, .ui-corner-top, .ui-corner-bottom, 
+.ui-corner-right, .ui-corner-left, .ui-corner-all,
+.ui-btn-corner-tl, .ui-btn-corner-tr, .ui-btn-corner-bl, 
+.ui-btn-corner-br, .ui-btn-corner-top, .ui-btn-corner-bottom, 
+.ui-btn-corner-right, .ui-btn-corner-left, .ui-btn-corner-all {
+	@include background-clip(padding-box);
+}
+
+/* Overlays */
+.ui-overlay { background: #666; opacity: .5; filter:Alpha(Opacity=50); position: absolute;  width: 100%; height: 100%; }
+.ui-overlay-shadow { @include box-shadow(rgba(0,0,0,.6), 0, 0, 12px); }
+
+.ui-shadow { @include box-shadow(rgba(0,0,0,.3), 0, 1px, 4px); }
+.ui-bar-a .ui-shadow, .ui-bar-b .ui-shadow , .ui-bar-c .ui-shadow  { @include box-shadow(rgba(255,255,255,.3), 0, 1px, 0); }
+.ui-shadow-inset { @include box-shadow(rgba(0,0,0,.2), 0, 1px, 4px, 0, true); }
+.ui-icon-shadow { @include box-shadow(rgba(255,255,255,.4), 0, 1px, 0); }
+
+/* set focus state last */
+.ui-focus { outline-width: 0; @include box-shadow(#387bbe, 0, 0, 12px); }
+
+/* unset box shadow in browsers that don't do it right */
+.ui-mobile-nosupport-boxshadow * { @include box-shadow(none!important, 0, 0, 0); }
+.ui-mobile-nosupport-boxshadow .ui-focus { outline-width: 2px; }

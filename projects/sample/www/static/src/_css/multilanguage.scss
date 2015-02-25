@@ -1,0 +1,120 @@
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+@import "compass/css3/opacity";
+
+@mixin add_language($lang_code) {
+	body.#{$lang_code} {
+		ul.ml-content,
+		ul.ml-menu,
+		ul.ml-inputs {
+			li.ml {
+				display: none;
+			}
+			li.#{$lang_code} {
+				display: block;
+			}
+		}
+		ul.ml-hoverable-menu:hover {
+			li.ml a {
+				span {
+					font-weight: normal;
+				}
+				img {
+					+opacity: 0.4;
+				}
+			}
+			li.#{$lang_code} a {
+				span {
+					font-weight: bold;
+				}
+				img {
+					+opacity: 1;
+				}
+			}
+		}
+	}
+}
+$LANGUAGES: 'en' 'es' 'fr' 'pt' 'de' 'it' 'ja' 'zh_CN' 'zh_TW' 'id';
+
+@each $lang_code in $LANGUAGES {
+	@include add_language($lang_code);
+}
+
+@include add_language('default-lang');
+
+/***************************/
+/* multilanguage edition */
+.multilanguage {
+	position: relative;
+	padding-right: 18px;
+	margin-right: -2px;
+	/***display: inline-block;*/
+
+	ul.ml-menu,
+	ul.ml-menu li.ml,
+	ul.ml-content,
+	ul.ml-content li.ml,
+	ul.ml-inputs,
+	ul.ml-inputs li.ml {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	ul.ml-inputs input,
+	ul.ml-inputs textarea {
+		margin-right: 0;
+		width: 100%; /*** */
+	}
+
+	ul.ml-menu {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.ml-hoverable-menu:hover {
+		z-index: 1000;
+		background: #FFF;
+
+		+box-shadow: rgba(black, 12%) 0 2px 4px;
+
+		padding: 4px;
+
+		border: 1px solid #ddd;
+		+border-radius: 3px;
+
+		top: -20px;
+		right: -20px;
+
+		li.ml {
+			display: block;
+			padding: 2px;
+		}
+
+		a img {
+			margin-right: 2px;
+			vertical-align: middle;
+			+opacity: 0.4;
+		}
+		a:hover img {
+			+opacity: 1;
+		}
+
+		li.ml a span {
+			display: inline;
+			font-size: 11px;
+			font-weight: normal;
+		}
+	}
+
+	li.ml a {
+		text-decoration: none;
+	}
+	li.ml a span {
+		display: none;
+	}
+	li.ml a:hover span {
+		text-decoration: underline;
+	}
+}

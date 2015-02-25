@@ -1,0 +1,116 @@
+@import "compass/utilities/general/float";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+@import "compass/css3/transform";
+
+// Based on the work of Nicolas Gallagher
+// http://nicolasgallagher.com/css-drop-shadows-without-images/
+// Scss Mixins by German M. Bravo (Kronuz) Apr 1, 2011
+//
+// Provides the following mixins:
+//   +drop-shadow()
+//   +lifted-drop-shadow()
+
+$default-drop-shadow-radius: 10px !default;
+$default-drop-shadow-angle: 5deg !default;
+$default-drop-shadow-rotation: 0 !default;
+$default-drop-shadow-bottom: 12px !default;
+$default-drop-shadow-blur: 4px !default;
+$default-inner-shadow-blur: 40px !default;
+$default-inner-shadow-opacity: 10% !default;
+$default-drop-shadow-opacity: 30% !default;
+$default-direction: down !default;
+
+// Lifted corners
+@mixin lifted-drop-shadow(
+	$bottom: $default-drop-shadow-bottom,
+	$radius: $default-drop-shadow-radius,
+	$angle: $default-drop-shadow-angle,
+	$rotation: $default-drop-shadow-rotation,
+	$drop-shadow-blur: $default-drop-shadow-blur,
+) {
+	@include drop-shadow($radius, $rotation);
+	img {
+		+border-radius: $radius;
+	}
+	&:before,
+	&:after {
+		bottom: $bottom;
+		width: 46%;
+		height: 8px;
+		+box-shadow: rgba(0, 0, 0, 0.1) 0 15px $drop-shadow-blur 0;
+	}
+	&:before {
+		left: 9px;
+		+transform: rotate(-$angle - ($rotation / 3));
+	}
+	&:after {
+		right: 3px;
+		+transform: rotate($angle - ($rotation / 3));
+	}
+}
+
+@mixin drop-shadow(
+	$radius: $default-drop-shadow-radius,
+	$border-width: 0,
+	$border-color: none,
+	$rotation: $default-drop-shadow-rotation,
+	$direction: $default-direction,
+	$inner-shadow-blur: $default-inner-shadow-blur,
+	$inner-shadow-opacity: $default-inner-shadow-opacity,
+	$drop-shadow-blur: $default-drop-shadow-blur,
+	$drop-shadow-opacity: $default-drop-shadow-opacity,
+	$drop-shadow-color: rgba(0, 0, 0, $default-drop-shadow-opacity),
+	$inner-shadow-color: rgba(0, 0, 0, $default-inner-shadow-opacity),
+) {
+	position: relative;
+	@if $rotation {
+		+transform: rotate($rotation);
+	}
+	&:before,
+	&:after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+	}
+	& > :first-child {
+
+	}
+	& > :first-child:after {
+		content: "";
+		position: absolute;
+		z-index: 1;
+		top: -$border-width;
+		bottom: -$border-width;
+		left: -$border-width;
+		right: -$border-width;
+
+		$offset-x: 0px;
+		$offset-y: 1px;
+		@if $direction == up {
+			$offset-x: 0px;
+			$offset-y: -1px;
+		} @else if $direction == left {
+			$offset-x: 1px;
+			$offset-y: 0px;
+		} @else if $direction == right {
+			$offset-x: -1px;
+			$offset-y: 0px;
+		}
+
+		+box-shadow: $drop-shadow-color $offset-x $offset-y $drop-shadow-blur 0, $inner-shadow-color 0 0 $inner-shadow-blur inset;
+		+border-radius: $radius;
+	}
+	& > :first-child:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: -$border-width;
+		bottom: -$border-width;
+		left: -$border-width;
+		right: -$border-width;
+//		border: $border-width solid $border-color;
+		+border-radius: $radius;
+		background: $border-color;
+	}
+}

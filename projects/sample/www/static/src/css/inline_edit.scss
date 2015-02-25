@@ -1,0 +1,41 @@
+@import "compass/utilities/general";
+
+div.inline-edit {
+	.loader {
+		position: absolute;
+		color: rgb(180,180,180);
+		margin-left: 1em;
+		&:hover {
+			color: gray;
+		}
+	}
+	.cancel {
+		color: rgb(180,180,180);
+		bottom: 0;
+		font-size: 13px;
+		text-decoration: underline;
+		&:hover {
+			color: gray;
+		}
+	}
+	.placeholder {
+		color: gray;
+	}
+	&.single-inline .form-group {
+		// Form groups in inline edits adjust margin.
+		margin: -5px 0 -5px -9px;
+	}
+
+	.form-actions {
+		ul {
+			float: right;
+			display: inline-block;
+			list-style-type: none;
+			padding-left: 0;
+			margin-right: 35px;
+			li {
+				display: inline-block;
+			}
+		}
+	}
+}

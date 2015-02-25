@@ -1,0 +1,50 @@
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+
+.tt-empty,
+.tt-hint {
+	color: #ccc
+}
+
+.tt-dropdown-menu {
+	margin-top: -1px;
+	padding: 8px 0;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	+border-radius: 4px;
+	+box-shadow: 0 5px 10px rgba(0,0,0,.2);
+	max-height: 200px;
+	overflow-y: auto;
+	text-align: left;
+}
+
+.tt-empty,
+.tt-suggestion {
+	padding: 3px 20px;
+	font-size: 16px;
+	line-height: 24px;
+	min-width: 350px;
+}
+.tt-suggestion {
+	color: #444;
+	strong {
+		color: #000;
+	}
+}
+
+.tt-input {
+	border-radius: 4px !important;
+}
+
+.tt-suggestion.tt-cursor {
+	&, strong, .fa {
+		color: #fff;
+	}
+	background-color: #0097cf;
+}
+
+.tt-suggestion p {
+	cursor: default;
+	margin: 0;
+}

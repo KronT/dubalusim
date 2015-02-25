@@ -1,0 +1,3 @@
+V.cke_editable.cke_editable_inline{cursor:pointer;position:relative}.cke_editable.cke_editable_inline.cke_focus{outline:none;cursor:text}.cke_editable.cke_editable_inline.cke_focus::after{content:"";pointer-events:none;position:absolute;top:-6px;left:-6px;right:-6px;bottom:-6px;border-radius:3px;-webkit-box-shadow:inset 0 0 10px rgba(0,0,0,0.1),0 0 0 1px rgba(0,0,0,0.2);box-shadow:inset 0 0 10px rgba(0,0,0,0.1),0 0 0 1px rgba(0,0,0,0.2);;\u000abackground:rgba(0,0,0,0.01)}.cke_editable_inline pre{white-space:pre-wrap;word-wrap:break-word}.cke_reset_all .fa{text-align:right;font-family:DubaluIcons;font-size:16px}.cke_float{border:1px solid #ddd}.cke_toolgroup{margin:0 3px 3px}.cke_float .cke_top{border:none}\u000a
+p1
+.

@@ -10,4 +10,6 @@ Dubalu Framework
 """
 from __future__ import absolute_import, unicode_literals
 
-SOMETHING = 'HI'
+INSTALLED_APPS = (
+    'sample.mysampleapp',
+)

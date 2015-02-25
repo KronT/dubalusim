@@ -1,0 +1,3 @@
+Vdiv.inline-edit .loader{position:absolute;color:#b4b4b4;margin-left:1em}div.inline-edit .loader:hover{color:gray}div.inline-edit .cancel{color:#b4b4b4;bottom:0;font-size:13px;text-decoration:underline}div.inline-edit .cancel:hover{color:gray}div.inline-edit .placeholder{color:gray}div.inline-edit.single-inline .form-group{margin:-5px 0 -5px -9px}div.inline-edit .form-actions ul{float:right;display:inline-block;list-style-type:none;padding-left:0;margin-right:35px}div.inline-edit .form-actions ul li{display:inline-block}\u000a
+p1
+.

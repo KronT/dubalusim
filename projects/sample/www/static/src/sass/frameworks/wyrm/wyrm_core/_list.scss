@@ -1,0 +1,64 @@
+// Lists
+//
+// Lists in wyrm default to `list-style: none` mostly because I've found I use lists
+// more often as nav or block elements than as text lists. To get traditional
+// text lists you either add, or extend these classes through sass. For convenience
+// default lists in the `<article>` tag also extend these values.
+//
+// Markup:
+// <ul class="{$modifiers}">
+//  <li>Freespace 2</li>
+//  <li>The Elder Scrolls: Skyrim</li>
+//  <li>Grim Fandango</li>
+//  <li>
+//    Saints forever:
+//    <ul>
+//      <li>Saint's Row</li>
+//      <li>Saint's Row 2</li>
+//      <li>Saint's Row: The Third</li>
+//      <li>Saint's Row IV</li>
+//    </ul>
+//  </li>
+// </ul>
+//
+// .wy-plain-list-disc          - The usual disc list.
+// .wy-plain-list-decimal       - Decimal lists.
+//
+// Styleguide 4.3
+
+%wy-plain-list-disc {
+  list-style: disc;
+  line-height: $base-line-height;
+  margin-bottom: $base-line-height;
+  li {
+    list-style: disc;
+    margin-left: $base-line-height;
+    ul {
+      margin-bottom: 0;
+    }
+    li {
+      list-style: circle;
+      li {
+        list-style: square;
+      }
+    }
+  }
+}
+
+%wy-plain-list-decimal {
+  list-style: decimal;
+  line-height: $base-line-height;
+  margin-bottom: $base-line-height;
+  li {
+    list-style: decimal;
+    margin-left: $base-line-height;
+  }
+}
+
+.wy-plain-list-disc, article ul {
+  @extend %wy-plain-list-disc;
+}
+
+.wy-plain-list-decimal, article ol {
+  @extend %wy-plain-list-decimal;
+}

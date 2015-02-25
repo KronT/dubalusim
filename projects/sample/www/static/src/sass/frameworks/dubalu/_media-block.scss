@@ -1,0 +1,36 @@
+@import "compass/utilities/general/hacks";
+@import "compass/utilities/general/float";
+@import "compass/utilities/general/clearfix";
+
+$media-block-debug: false !default;
+
+@mixin media-block {
+  @include clearfix;
+  .bd {
+    padding: 0 4px;
+    display: table-cell;
+    width: 10000px;
+    @include has-layout;
+    *display: block;
+    *width: auto;
+  }
+  .bd > :first-child {
+    margin-top: 0;
+  }
+  .bd > :last-child {
+    margin-bottom: 0;
+  }
+  .im {
+    +float: left;
+  }
+  .imExt {
+    +float: right;
+  }
+  @if $media-block-debug {
+    .bd,
+    .im,
+    .im img,
+    .imExt,
+    & {
+      background-color: rgba(195,0,38,.30);
+  } } }

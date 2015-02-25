@@ -1,0 +1,54 @@
+/**
+ *	CKEditor editables are automatically set with the "cke_editable" class
+ *	plus cke_editable_(inline|themed) depending on the editor type.
+ */
+
+/* Style a bit the inline editables. */
+.cke_editable.cke_editable_inline {
+	cursor: pointer;
+	position: relative;
+}
+
+/* Once an editable element gets focused, the "cke_focus" class is
+   added to it, so we can style it differently. */
+.cke_editable.cke_editable_inline.cke_focus {
+	outline: none;
+	cursor: text;
+}
+
+.cke_editable.cke_editable_inline.cke_focus::after {
+	content: "";
+	pointer-events: none;
+	position: absolute;
+	top: -6px;
+	left: -6px;
+	right: -6px;
+	bottom: -6px;
+	border-radius: 3px;
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.2);;
+	background: rgba(0,0,0,0.01);
+}
+
+/* Avoid pre-formatted overflows inline editable. */
+.cke_editable_inline pre
+{
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+.cke_reset_all .fa {
+	text-align: right;
+	font-family: DubaluIcons;
+	font-size: 16px;
+}
+
+.cke_float {
+	border: 1px solid #ddd;
+}
+
+.cke_toolgroup {
+	margin: 0 3px 3px;
+}
+.cke_float .cke_top {
+	border: none;
+}

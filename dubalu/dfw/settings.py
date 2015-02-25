@@ -115,6 +115,7 @@ _INSTALLED_APPS = (
     # 'dfw.permissions',
     # 'dfw.profiles',
     # 'dfw.relationships',
+    'dfw.contrib.pages',
     'dfw.contrib.bundles',
 )
 INSTALLED_APPS += _INSTALLED_APPS
@@ -159,7 +160,7 @@ MIDDLEWARE_CLASSES = (
     'dfw.entities.middleware.EntityMiddleware',
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'dfw.urls'
 
 WSGI_APPLICATION = 'wsgi.application'
 
@@ -197,6 +198,65 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
+
+
+################################################################################
+#      _____                    _       _
+#     |_   _|__ _ __ ___  _ __ | | __ _| |_ ___  ___
+#       | |/ _ \ '_ ` _ \| '_ \| |/ _` | __/ _ \/ __|
+#       | |  __/ | | | | | |_) | | (_| | ||  __/\__ \
+#       |_|\___|_| |_| |_| .__/|_|\__,_|\__\___||___/
+#                        |_|
+#
+# List of processors used by RequestContext to populate the context.
+# Each one should be a callable that takes the request object as its
+# only parameter and returns a dictionary to add to the context.
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+
+    'dfw.core.context_processors.core',
+    # 'dfw.sections.context_processors.base_template',
+    'dfw.entities.context_processors.entity',
+    # 'dfw.profiles.context_processors.profiles',
+
+    # 'social.apps.django_app.context_processors.backends',
+    # 'social.apps.django_app.context_processors.login_redirect',
+    # 'pushstream.context_processors.pushstreams',
+)
+if PROJECT_NAME:
+    TEMPLATE_CONTEXT_PROCESSORS += (
+        PROJECT_NAME + '.context_processors.default',
+    )
+TEMPLATE_DEBUG = None
+
+TEMPLATE_DIRS = (
+    os.path.join('{BASE_DIR}', 'projects', '{PROJECT_NAME}', 'storage'),  # Needed by dfw.contrib.pages
+)
+if TEST:
+    TEMPLATE_DIRS += (
+        os.path.join('{BASE_DIR}', 'dfw', 'templates', 'tests'),  # Override templates for tests
+    )
+
+# List of callables that know how to import templates from various sources.
+# See the comments in django/core/template/loader.py for interface
+# documentation.
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)
+
+# Use Jinja2 engine:
+JINJA2_ENABLED = True
+# JINJA2_USE_COMPILED = True
+# JINJA2_COMPILED_TEMPLATES = os.path.join('{CACHE_ROOT}', '_jinja2') if JINJA2_USE_COMPILED else None
+
 
 ################################################################################
 #         _                 _
@@ -259,8 +319,8 @@ UGLIFYJS_DISABLED = False
 PYSCSS_STYLE = 'compressed'
 PYSCSS_DEBUG_INFO = False
 PYSCSS_LOAD_PATHS = [
-    os.path.join(BASE_DIR, 'dfw/static/src/css'),
-    os.path.join(BASE_DIR, 'dfw/static/src/sass/frameworks'),
+    os.path.join(BASE_DIR, 'dubalu/dfw/static/src/css'),
+    os.path.join(BASE_DIR, 'dubalu/dfw/static/src/sass/frameworks'),
 ]
 
 AUTOPREFIXER_BIN = ['node', os.path.join(BASE_DIR, 'lib/js/autoprefixer.js')]
@@ -302,7 +362,6 @@ if TEMPLATE_DEBUG is None:
 
 
 # Jinja2 configuration:
-JINJA2_ENABLED = True
 JINJA2_TEMPLATE_LOADERS = TEMPLATE_LOADERS
 if JINJA2_ENABLED:
     TEMPLATE_LOADERS = (

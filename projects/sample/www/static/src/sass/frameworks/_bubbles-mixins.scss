@@ -1,0 +1,605 @@
+@import "compass/css3/shared";
+@import "compass/css3/images";
+@import "compass/css3/transform";
+@import "compass/css3/border-radius";
+
+// SCSS speech bubbles mixins
+// by Andrea Ferretti
+// http://www.andreaferretti.it
+// 
+// Version 1.0
+// 
+// Dual licensed under MIT and GNU GPLv2 © Andrea Ferretti
+// 
+// -------------------------------------------------------------------
+// 
+// Based on the original
+// 
+// PROGRESSIVE ENHANCEMENT: PURE CSS SPEECH BUBBLES
+// 
+// by Nicolas Gallagher
+// http://nicolasgallagher.com/progressive-enhancement-pure-css-speech-bubbles/
+// 
+// http://nicolasgallagher.com
+// http://twitter.com/necolas
+// 
+// Created: 02 March 2010
+// Version: 1.01
+// 
+// Dual licensed under MIT and GNU GPLv2 © Nicolas Gallagher
+// 
+// -------------------------------------------------------------------
+// 
+// Provides four mixins:
+// 
+// +rectangle-balloon()
+// +small-rectangle-balloon()
+// +balloon()
+// +balloon-border()
+
+@mixin triangle-block {
+  content: "\00a0";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid; }
+
+//Draws a rectangle-shaped balloon having a triangular tip. By default a gradient is added.
+//
+//$background-color: The color of the balloon.
+//$type: Can be 'isosceles', 'right', 'obtuse' or 'outline'.
+//$position: Where to draw the tip. Can be 'bottom', 'top', 'left' or 'right'.
+//$radius: The radius of the rounded corners of the balloon.
+//$scale: Change this parameter to vary the size of the tip.
+//$secondary-color: The second color of the gradient. By default it is slightly lighter than the background color.
+//$margin: Margin for the rectangle.
+//$scale: Inner padding.
+
+@mixin rectangle-balloon($background-color: #f3961c, $type: isosceles, $position: bottom, $radius: default, $scale: 1, $secondary-color: default, $margin: default, $padding: default, $outline-width: 5px, $outline-color: $background-color, $left: 0, $right: 0, $top: 0, $bottom: 0) {
+  @if type-of($background-color) != color and $background-color != transparent {
+    @warn "$background-color should be a color or transparent"; }
+  @if $type != isosceles and $type != right and $type != obtuse and $type != outline {
+    @warn "$type should be either isosceles, right, obtuse or outline"; }
+  @if $position != bottom and $position != top and $position != left and $position != right {
+    @warn "$position should be either bottom, top, left or right"; }
+  @if type-of($secondary-color) != color and $secondary-color != transparent and $secondary-color != default {
+    @warn "$secondary-color should be a color, transparent or default"; }
+  @if type-of($scale) == list {
+    $scale-x: nth($scale, 1);
+    $scale-y: nth($scale, 2); }
+  @else {
+    $scale-x: $scale;
+    $scale-y: $scale; }
+  @if type-of($scale-x) != number or not unitless($scale-x) or type-of($scale-y) != number or not unitless($scale-y) {
+    @warn "$scale should be a list or a unitless number"; }
+  position: relative;
+  @if $padding != false {
+    @if $padding == default {
+      $padding: 15px * $scale-y 15px * $scale-x; }
+    padding: $padding; }
+  @if $margin != false {
+    @if $margin == default {
+      @if $position == bottom {
+      $margin: (1em 0 3em) * $scale-y; }
+      @if $position == top {
+      $margin: (3em 0 1em) * $scale-y; } }
+    margin: $margin; }
+  @if $radius != false {
+    @if $radius == default {
+      $radius: 10px * $scale-x 10px * $scale-y;
+    }
+    @include border-radius($radius); }
+  @if $background-color != transparent {
+    background-color: $background-color;
+    @if $secondary-color != transparent {
+      @if $secondary-color == default {
+        $secondary-color: lighten($background-color, 15%); }
+      @include background-image(linear-gradient($position, $background-color, $secondary-color)); } }
+  @if $position == left {
+    @if $type == outline {
+      margin-left: $scale-x * 17px; }
+    @else {
+      margin-left: $scale-x * 50px; } }
+  @if $type == outline {
+    border: $outline-width solid $outline-color; }
+  &:after {
+    @include triangle-block;
+    @if $type == isosceles {
+      @if $position == bottom {
+        bottom: -2 * $scale-y * 15px + 1px + $bottom;
+        @if $left {
+          left: $left; }
+        @else if $right {
+          right: $right; }
+        @else {
+          left: 50px; }
+        margin-left: -1 * $scale-x * 15px - 1px;
+        margin-right: -1 * $scale-x * 15px - 1px;
+        border-width: $scale-y * 15px $scale-x * 15px;
+        border-color: $background-color transparent transparent; }
+      @if $position == top {
+        top: -2 * $scale-y * 15px + 1px + $top;
+        @if $left {
+          left: $left; }
+        @else if $right {
+          right: $right; }
+        @else {
+          right: 50px; }
+        margin-left: -1 * $scale-x * 15px - 1px;
+        margin-right: -1 * $scale-x * 15px - 1px;
+        border-width: $scale-y * 15px $scale-x * 15px;
+        border-color: transparent transparent $background-color; }
+      @if $position == left {
+        left: $scale-x * -100px + $left;
+        @if $bottom {
+          bottom: $bottom; }
+        @else if $top {
+          top: $top; }
+        @else {
+          top: 16px; }
+        margin-top: -1 * $scale-y * 15px - 1px;
+        margin-bottom: -1 * $scale-y * 15px - 1px;
+        border-width: $scale-y * 10px $scale-x * 50px;
+        border-color: transparent $background-color transparent transparent; }
+      @if $position == right {
+        right: $scale-x * -100px + $right;
+        @if $top {
+          top: $top; }
+        @else if $bottom {
+          bottom: $bottom; }
+        @else {
+          top: 16px; }
+        margin-top: -1 * $scale-y * 15px - 1px;
+        margin-bottom: -1 * $scale-y * 15px - 1px;
+        border-width: $scale-y * 10px $scale-x * 50px;
+        border-color: transparent transparent transparent $background-color; } }
+    @if $type == right {
+      @if $position == bottom {
+        bottom: $scale-y * -40px + $bottom;
+        @if $left {
+          left: $left; }
+        @else if $right {
+          right: $right; }
+        @else {
+          left: 50px; }
+        margin-left: -1 * $scale-x * 15px - 1px;
+        margin-right: -1 * $scale-x * 15px - 1px;
+        border-width: $scale-y * 20px 0 $scale-y * 20px $scale-x * 20px;
+        border-color: $background-color transparent transparent; }
+      @if $position == top {
+        top: $scale-y * -40px + $top;
+        @if $left {
+          left: $left; }
+        @else if $right {
+          right: $right; }
+        @else {
+          right: 50px; }
+        margin-left: -1 * $scale-x * 15px - 1px;
+        margin-right: -1 * $scale-x * 15px - 1px;
+        border-width: $scale-y * 20px $scale-x * 20px $scale-y * 20px 0;
+        border-color: transparent transparent $background-color; }
+      @if $position == left {
+        left: $scale-x * -80px + $left;
+        @if $top {
+          top: $top; }
+        @else if $bottom {
+          bottom: $bottom; }
+        @else {
+          top: 16px; }
+        margin-top: -1 * $scale-y * 15px - 1px;
+        margin-bottom: -1 * $scale-y * 15px - 1px;
+        border-width: $scale-y * 15px $scale-x * 40px 0;
+        border-color: transparent $background-color transparent transparent; }
+      @if $position == right {
+        right: $scale-x * -80px + $right;
+        @if $top {
+          top: $top; }
+        @else if $bottom {
+          bottom: $bottom; }
+        @else {
+          top: 16px; }
+        margin-top: -1 * $scale-y * 15px - 1px;
+        margin-bottom: -1 * $scale-y * 15px - 1px;
+        border-width: $scale-y * 15px $scale-x * 40px 0;
+        border-color: transparent transparent transparent $background-color; } }
+    @if $type == obtuse {
+      @if $position == bottom {
+        left: 60px + $scale-x * 20px + $left;
+        bottom: $scale-y * -20px + $bottom;
+        border-width: 0 $scale-x * 10px $scale-y * 20px 0;
+        border-color: transparent white; }
+      @if $position == top {
+        right: 60px + $scale-x * 20px + $right;
+        top: $scale-y * -20px + $top;
+        border-width: $scale-y * 20px 0 0 $scale-x * 10px;
+        border-color: transparent white; }
+      @if $position == left {
+        left: $scale-x * -50px + $left;
+        top: 15px + $scale-y * 20px + $top;
+        border-width: 0 0 $scale-y * 10px $scale-x * 50px;
+        border-color: transparent transparent white; }
+      @if $position == right {
+        top: 15px + $top;
+        right: $scale-x * -50px + $right;
+        border-width: $scale-y * 10px $scale-x * 50px 0 0;
+        border-color: white transparent; } }
+    @if $type == outline {
+      border-width: $scale-y * 20px - ($outline-width) $scale-x * 20px - ($outline-width);
+      border-color: transparent;
+      border-style: solid;
+      @if $position == bottom {
+        bottom: -$scale-y * 40px + ($outline-width) * 2 + $bottom;
+        @if $left {
+          left: $left; }
+        @else if $right {
+          right: $right; }
+        @else {
+          left: 50px; }
+        margin-left: -1 * $scale-x * 15px - 1px;
+        margin-right: -1 * $scale-x * 15px - 1px;
+        border-top-color: $background-color; }
+      @if $position == top {
+        top: -$scale-y * 40px + ($outline-width) * 2 + $top;
+        @if $left {
+          left: $left; }
+        @else if $right {
+          right: $right; }
+        @else {
+          right: 50px; }
+        margin-left: -1 * $scale-x * 15px - 1px;
+        margin-right: -1 * $scale-x * 15px - 1px;
+        border-bottom-color: $background-color; }
+      @if $position == left {
+        left: -$scale-x * 40px + ($outline-width) * 2 + $left;
+        @if $top {
+          top: $top; }
+        @else if $bottom {
+          bottom: $bottom; }
+        @else {
+          top: 16px; }
+        margin-top: -1 * $scale-y * 15px - 1px;
+        margin-bottom: -1 * $scale-y * 15px - 1px;
+        border-right-color: $background-color; }
+      @if $position == right {
+        right: -$scale-x * 40px + ($outline-width) * 2 + $right;
+        @if $top {
+          top: $top; }
+        @else if $bottom {
+          bottom: $bottom; }
+        @else {
+          top: 16px; }
+        margin-top: -1 * $scale-y * 15px - 1px;
+        margin-bottom: -1 * $scale-y * 15px - 1px;
+        border-left-color: $background-color; } } }
+  &:before {
+    z-index: 0;
+    @if $type == obtuse {
+      @include triangle-block;
+      @if $position == bottom {
+        bottom: $scale-y * -20px + $bottom;
+        left: 60px + $left;
+        margin-left: -1 * $scale-x * 15px - 1px;
+        margin-right: -1 * $scale-x * 15px - 1px;
+        border-width: 0 $scale-x * 30px $scale-y * 20px 0;
+        border-color: transparent $outline-color; }
+      @if $position == top {
+        right: 60px + $right;
+        top: $scale-y * -20px + $top;
+        margin-left: -1 * $scale-x * 15px - 1px;
+        margin-right: -1 * $scale-x * 15px - 1px;
+        border-width: $scale-y * 20px 0 0 $scale-x * 30px;
+        border-color: transparent $outline-color; }
+      @if $position == left {
+        left: $scale-x * -50px + $left;
+        top: 15px + $top;
+        margin-top: -1 * $scale-y * 15px - 1px;
+        margin-bottom: -1 * $scale-y * 15px - 1px;
+        border-width: 0 0 $scale-y * 30px $scale-x * 50px;
+        border-color: transparent transparent $outline-color; }
+      @if $position == right {
+        right: $scale-x * -100px + $right;
+        top: 15px + $top;
+        margin-top: -1 * $scale-y * 15px - 1px;
+        margin-bottom: -1 * $scale-y * 15px - 1px;
+        border-width: 0 $scale-x * 50px $scale-y * 30px $scale-x * 50px;
+        border-color: transparent transparent transparent $outline-color; } }
+    @if $type == outline {
+      @include triangle-block;
+      border-style: solid;
+      border-color: transparent;
+      @if $position == bottom {
+        bottom: $scale-y * -40px + $bottom;
+        border-width: $scale-y * 20px - $bottom $scale-x * 20px - $bottom;
+        @if $left {
+          left: $left; }
+        @else if $right {
+          right: $right; }
+        @else {
+          left: 50px; }
+        margin-left: -1 * $scale-x * 15px - 1px - $outline-width;
+        margin-right: -1 * $scale-x * 15px - 1px - $outline-width;
+        border-top-color: $outline-color; }
+      @if $position == top {
+        top: $scale-y * -40px + $top * 2;
+        border-width: $scale-y * 20px - $top $scale-x * 20px - $top;
+        @if $left {
+          left: $left + $top; }
+        @else if $right {
+          right: $right + $top; }
+        @else {
+          right: 50px + $top; }
+        margin-left: -1 * $scale-x * 15px - 1px - $outline-width;
+        margin-right: -1 * $scale-x * 15px - 1px - $outline-width;
+        border-bottom-color: $outline-color; }
+      @if $position == left {
+        left: $scale-x * -40px + $left;
+        border-width: $scale-y * 20px - $left $scale-x * 20px - $left;
+        @if $top {
+          top: $top; }
+        @else if $bottom {
+          bottom: $bottom; }
+        @else {
+          top: 16px; }
+        margin-top: -1 * $scale-y * 15px - 1px - $outline-width;
+        margin-bottom: -1 * $scale-y * 15px - 1px - $outline-width;
+        border-right-color: $outline-color; }
+      @if $position == right {
+        right: $scale-x * -40px + $right;
+        border-width: $scale-y * 20px - $right $scale-x * 20px - $right;
+        @if $top {
+          top: $top; }
+        @else if $bottom {
+          bottom: $bottom; }
+        @else {
+          top: 16px; }
+        margin-top: -1 * $scale-y * 15px - 1px - $outline-width;
+        margin-bottom: -1 * $scale-y * 15px - 1px - $outline-width;
+        border-left-color: $outline-color; } } } }
+
+//Draws a small rectangle-shaped balloon on the left of the containing element.
+//
+//$background-color: The color of the balloon.
+//$radius: The radius of the rounded corners of the balloon.
+//$scale: Change this parameter to vary the size of the balloon.
+
+@mixin small-rectangle-balloon($background-color: #b513af, $radius: 3px, $scale: 1) {
+  @if type-of($background-color) != color {
+    @warn "$background-color should be a color"; }
+  @if type-of($scale) == list {
+    $scale-x: nth($scale, 1);
+    $scale-y: nth($scale, 2); }
+  @else {
+    $scale-x: $scale;
+    $scale-y: $scale; }
+  @if type-of($scale-x) != number or not unitless($scale-x) or type-of($scale-y) != number or not unitless($scale-y) {
+    @warn "$scale should be a list or a unitless number"; }
+  position: relative;
+  padding: 0;
+  &:before {
+    @include border-radius($radius);
+    content: "\00a0";
+    display: block;
+    position: absolute;
+    top: $scale-y * 9px - 5px;
+    left: $scale-x * -25px;
+    width: $scale-x * 15px;
+    height: $scale-y * 10px;
+    background: $background-color; }
+  &:after {
+    @include triangle-block;
+    top: $scale-y * 15px - 5px;
+    left: $scale-x * -19px;
+    border-width: $scale-y * 4px $scale-x * 4px;
+    border-style: solid;
+    border-color: transparent;
+    border-left-color: $background-color; } }
+
+//Draws a speech bubble balloon. By default a vertical gradient is added.
+//
+//$background-color: The color of the balloon.
+//$type: Can be 'speech' or 'thought'.
+//$width: The width of the balloon.
+//$scale: Change this parameter to vary the size of the tip.
+//$radius1: The horizontal radius of the rounded corners of the balloon. By default it is proportional to the width.
+//$radius2: The vertical radius of the rounded corners of the balloon. By default it is proportional to the width.
+//$secondary-color: The second color of the gradient. By default it is slightly lighter than the background color.
+
+@mixin balloon($background-color: #5a8f00, $type: speech, $width: 270px, $scale: 1, $radius1: default, $radius2: default, $secondary-color: default) {
+  @if type-of($background-color) != color and $background-color != transparent {
+    @warn "$background-color should be a color or transparent"; }
+  @if $type != speech and $type != thought {
+    @warn "$type should be either speech or thought"; }
+  @if type-of($width) != number {
+    @warn "$width should be a number (with units)"; }
+  @if type-of($scale) == list {
+    $scale-x: nth($scale, 1);
+    $scale-y: nth($scale, 2); }
+  @else {
+    $scale-x: $scale;
+    $scale-y: $scale; }
+  @if type-of($scale-x) != number or not unitless($scale-x) or type-of($scale-y) != number or not unitless($scale-y) {
+    @warn "$scale should be a list or a unitless number"; }
+  @if type-of($secondary-color) != color and $secondary-color != default {
+    @warn "$secondary-color should be either a color or the string default"; }
+  @if $radius1 == default {
+    $radius1: 0.8 * $width; }
+  @if $radius2 == default {
+    $radius2: 0.45 * $width; }
+  @include border-radius($radius1, $radius2);
+  background: $background-color;
+  @if $background-color != transparent {
+    @if $secondary-color == default {
+      $secondary-color: lighten($background-color, 15%); }
+    @include background-image(linear-gradient(bottom, $background-color, $secondary-color)); }
+  text-align: center;
+  position: relative;
+  width: $width;
+  padding: 50px 40px;
+  margin: 1em auto 50px;
+  &:before {
+    content: "\00a0";
+    position: absolute;
+    z-index: 0;
+    background: $background-color;
+    @if $type == speech {
+      @include border-bottom-right-radius(80px 50px);
+      @include transform(translate(0, -2px));
+      bottom: $scale-y * -30px;
+      right: 50%;
+      width: 0;
+      height: $scale-y * 30px;
+      border-right: $scale-y * 60px solid $background-color; }
+    @if $type == thought {
+      @include border-radius(30px);
+      bottom: $scale-y * -20px;
+      left: 50px;
+      width: $scale-x * 30px;
+      height: $scale-y * 30px; } }
+  &:after {
+    content: "\00a0";
+    position: absolute;
+    z-index: 0;
+    @if $type == speech {
+      @include border-bottom-right-radius(40px 50px);
+      @include transform(translate($scale-x * -30px, -2px));
+      background: white;
+      bottom: $scale-y * -30px;
+      right: 50%;
+      width: $scale-x * 60px;
+      height: $scale-y * 30px; }
+    @if $type == thought {
+      @include border-radius(15px);
+      background: $background-color;
+      bottom: $scale-y * -30px;
+      left: 30px;
+      width: $scale-x * 15px;
+      height: $scale-y * 15px; } } }
+
+//Draws a speech bubble balloon with outlined border.
+//
+//$border-color: The color of the border of the balloon.
+//$type: The shape of the balloon. Can be either 'rectangle', 'speech' or 'thought'
+//$width: The width of the balloon.
+//$scale: Change this parameter to vary the size of the tip.
+//$radius1: The horizontal radius of the rounded corners of the balloon. By default it is proportional to the width.
+//		If $type is 'rectangle', this is the radius of the rounded corners.
+//$radius2: The vertical radius of the rounded corners of the balloon. By default it is proportional to the width.
+//		If $type is 'rectangle', this is ignored.
+//
+//NOTE: The text must be inside a child element (for instance <p>).
+
+@mixin balloon-border($border-color: #5a8f00, $type: rectangle, $width: 400px, $scale: 1, $radius1: default, $radius2: default) {
+  @if type-of($border-color) != color {
+    @warn "$border-color should be a color"; }
+  @if $type != rectangle and $type != speech and $type != thought {
+    @warn "$type should be either rectangle, speech or thought"; }
+  @if type-of($width) != number {
+    @warn "$width should be a number (with units)"; }
+  @if type-of($scale) == list {
+    $scale-x: nth($scale, 1);
+    $scale-y: nth($scale, 2); }
+  @else {
+    $scale-x: $scale;
+    $scale-y: $scale; }
+  @if type-of($scale-x) != number or not unitless($scale-x) or type-of($scale-y) != number or not unitless($scale-y) {
+    @warn "$scale should be a list or a unitless number"; }
+  @if $radius1 == default {
+    @if $type == rectangle {
+      $radius1: 20px; }
+    @else {
+      $radius1: 0.6 * $width; } }
+  @if $radius2 == default {
+    $radius2: 0.35 * $width; }
+  position: relative;
+  margin: 1em 0 3em;
+  width: $width;
+  @if $type == rectangle {
+    @include border-radius($radius1);
+    padding: 30px 15px; }
+  @else {
+    @include border-radius($radius1, $radius2);
+    padding: 50px 30px; }
+  border: 10px solid $border-color;
+  text-align: center;
+  background: white;
+  &:before {
+    content: "\00a0";
+    position: absolute;
+    z-index: 2;
+    bottom: $scale-y * -40px;
+    width: $scale-x * 50px;
+    border-style: solid;
+    border-color: $border-color;
+    @if $type == thought {
+      @include border-radius($scale-x * 50px $scale-y * 50px);
+      right: 100px;
+      height: $scale-y * 50px;
+      border-width: 10px;
+      background: white; }
+    @else {
+      @include border-bottom-right-radius($scale-x * 80px $scale-y * 50px);
+      height: $scale-y * 30px;
+      border-width: 0 10px 10px 0;
+      background: transparent; }
+    @if $type == rectangle {
+      left: 50px; }
+    @if $type == speech {
+      right: 50%;
+      margin-right: -10px; } }
+  &:after {
+    content: "\00a0";
+    position: absolute;
+    z-index: 2;
+    border-style: solid;
+    border-color: $border-color;
+    @if $type == thought {
+      @include border-radius(25px);
+      bottom: $scale-y * -60px;
+      right: 50px;
+      width: $scale-x * 25px;
+      height: $scale-y * 25px;
+      border-width: 10px;
+      background: white; }
+    @else {
+      @include border-bottom-right-radius(40px 50px);
+      bottom: -10px + $scale-y * -30px;
+      width: $scale-x * 20px;
+      border-width: 0 10px 10px 0;
+      background: transparent; }
+    @if $type == rectangle {
+      left: 50px;
+      height: $scale-y * 30px; }
+    @if $type == speech {
+      right: 50%;
+      height: $scale-y * 31px;
+      margin-right: 20px; } }
+  &>:first-child {
+    @if $type != thought {
+      &:before {
+        @include border-radius(10px);
+        content: "\00a0";
+        position: absolute;
+        z-index: 4;
+        bottom: $scale-y * -40px;
+        width: 6px + $scale-x * 4px;
+        height: 6px + $scale-y * 4px;
+        background: $border-color;
+        @if $type == rectangle {
+          left: 32px + $scale-x * 13px; }
+        @else {
+          right: 50%;
+          margin-right: 15px + $scale-x * 30px; } }
+      &:after {
+        content: "\00a0";
+        position: absolute;
+        z-index: 1;
+        bottom: -10px;
+        height: 15px;
+        background: white;
+        @if $type == rectangle {
+          left: 76px;
+          width: $scale-x * 48px - 24px; }
+        @else {
+          right: 50%;
+          width: 30px; } } } } }

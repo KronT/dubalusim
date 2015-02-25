@@ -1,0 +1,105 @@
+.col-xs-1,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-10,.col-xs-11,.col-xs-12,.col-sm-1,.col-sm-2,
+.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-10,.col-sm-11,.col-sm-12,.col-md-1,.col-md-2,.col-md-3,.col-md-4,
+.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12,.input-group,.row,.content
+{
+	box-sizing:border-box;
+	behavior: url('/static/css/boxsizing.htc');
+  padding: 0 1px;
+}
+
+/****   HACKS FOR FORMS    ***/
+.input-group .form-control {
+  width: auto;
+}
+.form-control {
+  padding: 0;
+}
+
+.input-lg {
+  padding: 10px 0;
+}
+
+.controls {
+  zoom: 1;
+}
+
+.input-group-addon {
+  vertical-align: auto;
+  display: inline;
+  zoom: 1;
+  float: left;
+  width: auto;
+}
+
+.twitter-typeahead {
+  width: 90%;
+}
+
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+  display: inline;
+}
+
+.tt-input {
+  border: 1px solid #ccc !important;
+}
+
+.input-sm {
+  height: 20px;
+}
+
+.iehack span.input-sm.input-group-addon {
+  padding: 2px 8px;
+}
+
+span.ieunidad {
+  width: 19% !important;
+  color: #ddd;
+}
+
+.iecantidad {
+  width: 29%;
+}
+
+.tax-discounts {
+  width: 70% !important;
+  zoom: 1 !important;
+  float: none !important;
+}
+
+.input-group-btn {
+  vertical-align: top !important;
+}
+
+/********************************/
+.gotoaction {
+  zoom: 1;
+  position: relative;
+}
+
+#installed_services i.action {
+  display: none;
+}
+
+input, textarea { color: #ccc; }
+.placeholder { color: #ccc; }
+
+fieldset:-ms-input-placeholder { color:#ccc; } /* ie */
+
+audio,canvas,video{display:inline;zoom:1}
+html{font-size:100%}
+img{width:auto;height:auto;-ms-interpolation-mode:bicubic}
+button,input{overflow:visible}
+.container{zoom:1}
+.row{zoom:1} .row .row, .row .row .row {margin: 0}
+.dl-horizontal{zoom:1}
+input[type="radio"],input[type="checkbox"]{margin-top:0}
+.help-block{display:inline;zoom:1}
+.form-horizontal .form-group{zoom:1}
+.dropdown-toggle{margin-bottom:-3px}
+.dropdown-menu .divider{width:100%;margin:-5px 0 5px}
+.list-group{margin-left:0}
+ul .list-group-item{list-style:none}
+.sr-only{clip:rect(0 0 0 0)}
+.list-inline > li{display:inline;zoom:1}

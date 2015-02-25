@@ -1,0 +1,93 @@
+/**
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ * @author German M. Bravo german.mb@gmail.com @germbravo
+ */
+
+@import "compass/css3/images";
+
+// default values
+$background-noise-density-default:      0.8 !default;
+$background-noise-intensity-default:    0.5 !default;
+$background-noise-color-default:        rgba(0, 0, 0, 0) !default;
+$background-noise-opacity-default:      0.2 !default;
+$background-noise-size-default:         200 !default;
+$background-noise-monochrome-default:   false !default;
+$background-noise-background-default:   rgba(0, 0, 0, 0) !default;
+
+@mixin background-noise(
+    $density:     $background-noise-density-default,
+    $opacity:     $background-noise-opacity-default,
+    $size:        $background-noise-size-default,
+    $monochrome:  $background-noise-monochrome-default,
+    $intensity:   $background-noise-intensity-default,
+    $color:       $background-noise-color-default,
+    $background:  $background-noise-background-default
+)
+{
+    background-image: background_noise(
+        $density: $density,
+        $opacity: $opacity,
+        $size: $size,
+        $monochrome: $monochrome,
+        $intensity: $intensity,
+        $color: $color,
+        $background: $background
+    );
+    background-repeat: repeat;
+}
+
+$background-brushed-density-default:    0.8 !default;
+$background-brushed-intensity-default:  0.5 !default;
+$background-brushed-color-default:      rgba(0, 0, 0, 0) !default;
+$background-brushed-opacity-default:    0.2 !default;
+$background-brushed-size-default:       200 !default;
+$background-brushed-monochrome-default: false !default;
+$background-brushed-direction-default:  0 !default;
+$background-brushed-spread-default:     0 !default;
+$background-brushed-background-default: rgba(0, 0, 0, 0) !default;
+
+@mixin background-brushed(
+    $density:     $background-brushed-density-default,
+    $intensity:   $background-brushed-intensity-default,
+    $color:       $background-brushed-color-default,
+    $opacity:     $background-brushed-opacity-default,
+    $size:        $background-brushed-size-default,
+    $monochrome:  $background-brushed-monochrome-default,
+    $direction:   $background-brushed-direction-default,
+    $spread:      $background-brushed-spread-default,
+    $background:  $background-brushed-background-default
+)
+{
+    background-image: background_brushed(
+        $density: $density,
+        $intensity: $intensity,
+        $color: $color,
+        $opacity: $opacity,
+        $size: $size,
+        $monochrome: $monochrome,
+        $direction: $direction,
+        $spread: $spread,
+        $background: $background
+    );
+    background-repeat: repeat;
+}

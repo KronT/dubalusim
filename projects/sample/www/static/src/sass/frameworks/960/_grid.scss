@@ -1,0 +1,143 @@
+/*
+  960 Grid System ~ Core CSS.
+  Learn more ~ http://960.gs/
+
+  Licensed under GPL and MIT.
+*/
+@import "compass/css3/background-size";
+
+$ninesixty-grid-image: false !default;
+
+$ninesixty-grid-margin: auto !default;
+$ninesixty-gutter-width: 20px !default;
+$ninesixty-grid-width: 960px !default;
+
+$ninesixty-fluid-grid-margin: 4% !default;
+$ninesixty-fluid-gutter-width: 2% !default;
+$ninesixty-fluid-grid-width: 100% !default;
+
+$ninesixty-columns: 12 !default;
+
+@mixin grid-image($columns: $ninesixty-columns, $gutter-width: $ninesixty-gutter-width, $grid-width: $ninesixty-grid-width) {
+  @if $ninesixty-grid-image {
+    background: grid-image($gutter-width / 2, $grid-width / $columns - $gutter-width, $gutter-width / 2, 16px, $columns);
+  /*@include background-size(100% 16px);*/ } }
+
+@mixin grid-container($columns: $ninesixty-columns, $gutter-width: $ninesixty-gutter-width, $grid-width: $ninesixty-grid-width, $grid-margin: $ninesixty-grid-margin) {
+  margin-left: $grid-margin;
+  margin-right: $grid-margin;
+  width: $grid-width - if($grid-margin == 'auto', 0, $grid-margin * 2);
+  .clear {
+    background: none;
+    border: 0;
+    clear: both;
+    display: block;
+    float: none;
+    font-size: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0; } }
+
+@mixin grid-width($n, $columns: $ninesixty-columns, $gutter-width: $ninesixty-gutter-width, $grid-width: $ninesixty-grid-width) {
+  width: $grid-width / $columns * $n - $gutter-width; }
+
+@mixin grid-unit-margin($gutter-width: $ninesixty-gutter-width) {
+  margin: {
+    left: $gutter-width / 2;
+    right: $gutter-width / 2; };
+  @if unit($gutter-width) == '%' {
+    *margin: {
+      left: $gutter-width / 2 * 0.92;
+      right: $gutter-width / 2 * 0.92; };
+    _margin: {
+      left: $gutter-width / 2 * 0.8;
+      right: $gutter-width / 2 * 0.8; }; } }
+
+@mixin grid-unit-base($gutter-width: $ninesixty-gutter-width) {
+  display: inline !important;
+  float: left;
+  @include grid-unit-margin($gutter-width); }
+
+@mixin grid($n, $columns: $ninesixty-columns, $gutter-width: $ninesixty-gutter-width, $grid-width: $ninesixty-grid-width) {
+  @include grid-unit-base($gutter-width);
+  @include grid-width($n, $columns, $gutter-width, $grid-width); }
+
+@mixin alpha {
+  margin-left: 0 !important; }
+
+@mixin omega {
+  margin-right: 0 !important; }
+
+@mixin grids($columns: $ninesixty-columns, $gutter-width: $ninesixty-gutter-width, $grid-width: $ninesixty-grid-width) {
+  #{enumerate(".grid", 1, $columns, "_")} {
+    @include grid-unit-base($gutter-width); }
+  @for $n from 1 through $columns {
+    .grid_#{$n} {
+      @include grid-width($n, $columns, $gutter-width, $grid-width); } } }
+
+@mixin grids-nested($columns: $ninesixty-columns, $gutter-width: $ninesixty-gutter-width, $grid-width: $ninesixty-grid-width) {
+  @if unit($grid-width) == '%' {
+    @for $n from 1 through $columns {
+      $gutter: $gutter-width * $grid-width / ($grid-width / $columns * $n - $gutter-width);
+      @for $m from 1 through $n {
+        .grid_#{$n} .grid_#{$m} {
+          @include grid-width($m, $n, $gutter, 100% + $gutter);
+          @include grid-unit-margin($gutter); } } } } }
+
+@mixin grid-prefix($n, $columns: $ninesixty-columns, $grid-width: $ninesixty-grid-width) {
+  padding-left: $grid-width / $columns * $n; }
+
+@mixin grid-prefixes($columns: $ninesixty-columns, $grid-width: $ninesixty-grid-width) {
+  @for $n from 1 through $columns - 1 {
+    .prefix_#{$n} {
+      @include grid-prefix($n, $columns, $grid-width); } } }
+
+@mixin grid-suffix($n, $columns: $ninesixty-columns, $grid-width: $ninesixty-grid-width) {
+  padding-right: $grid-width / $columns * $n; }
+
+@mixin grid-suffixes($columns: $ninesixty-columns, $grid-width: $ninesixty-grid-width) {
+  @for $n from 1 through $columns - 1 {
+    .suffix_#{$n} {
+      @include grid-suffix($n, $columns, $grid-width); } } }
+
+@mixin grid-children {
+  .alpha {
+    @include alpha; }
+  .omega {
+    @include omega; } }
+
+@mixin grid-move-base {
+  position: relative; }
+
+@mixin grid-push($n, $columns: $ninesixty-columns, $grid-width: $ninesixty-grid-width) {
+  left: $grid-width / $columns * $n; }
+
+@mixin grid-pull($n, $columns: $ninesixty-columns, $grid-width: $ninesixty-grid-width) {
+  left: -($grid-width / $columns) * $n; }
+
+@mixin grid-movements($columns: $ninesixty-columns, $grid-width: $ninesixty-grid-width) {
+  #{enumerate(".push", 1, $columns, "_")},
+  #{enumerate(".pull", 1, $columns, "_")} {
+    @include grid-move-base; }
+  @for $n from 1 through $columns {
+    .push_#{$n} {
+      @include grid-push($n, $columns, $grid-width); }
+    .pull_#{$n} {
+      @include grid-pull($n, $columns, $grid-width); } } }
+
+@mixin grid-system($columns: $ninesixty-columns, $gutter-width: $ninesixty-gutter-width, $grid-width: $ninesixty-grid-width, $grid-margin: $ninesixty-grid-margin) {
+  @include grid-image($columns, $gutter-width, $grid-width);
+  @include grid-container($columns, $gutter-width, $grid-width, $grid-margin);
+  @include grids($columns, $gutter-width, $grid-width);
+  @include grids-nested($columns, $gutter-width, $grid-width);
+  @include grid-prefixes($columns, $grid-width);
+  @include grid-suffixes($columns, $grid-width);
+  @include grid-children;
+  @include grid-movements($columns, $grid-width); }
+
+@mixin grid-fluid-system($columns: $ninesixty-columns, $gutter-width: $ninesixty-fluid-gutter-width, $grid-width: $ninesixty-fluid-grid-width, $grid-margin: $ninesixty-fluid-grid-margin) {
+  @include grid-system($columns, $gutter-width, $grid-width, $grid-margin) }
