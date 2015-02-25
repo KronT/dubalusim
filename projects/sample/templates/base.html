@@ -1,0 +1,101 @@
+{% extends 'html.html' %}
+
+{% load i18n %}
+{% load cache %}
+{% load assets %}
+{% load capture %}
+{% load simple_tags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		{% block title %}{{ SITE_NAME }}{% endblock %}
+	</title>
+	{% block base_styles %}
+		<!-- Styles -->
+
+		{% assets "css_basic" %}
+			<link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" data-no-instant />
+		{% endassets %}
+
+		{% assets "css_all" %}
+			<link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" data-no-instant />
+		{% endassets %}
+
+		{% assets "css_theme" %}
+			<link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" data-no-instant />
+		{% endassets %}
+	{% endblock base_styles %}
+
+	{% block basic_scripts %}
+		<!-- Basic Scripts (as short as possible) -->
+
+		{% assets "js_basic" %}
+			<script src="{{ ASSET_URL }}" data-no-instant></script>
+		{% endassets %}
+
+		<!--[if IE]>
+			{% assets "js_ie" %}
+				<script src="{{ ASSET_URL }}" data-no-instant></script>
+			{% endassets %}
+		<![endif]-->
+
+		<!--[if IE 7]>
+			{% assets "js_ie7" %}
+				<script src="{{ ASSET_URL }}" data-no-instant></script>
+			{% endassets %}
+			{% assets "css_ie7" %}
+				<link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" data-no-instant />
+			{% endassets %}
+		<![endif]-->
+
+		<!--[if IE 8]>
+			{% assets "js_ie8" %}
+				<script src="{{ ASSET_URL }}" data-no-instant></script>
+			{% endassets %}
+		<![endif]-->
+	{% endblock basic_scripts %}
+</head>
+<body>
+	{% block styles %}{% block css %}{% endblock css %}{% endblock styles %}
+	{% block body %}
+		{% block content %}
+		{% endblock content %}
+	{% endblock body %}
+
+	{% block base_scripts %}
+		<!-- Scripts -->
+
+		{% assets "js_all" %}
+			<script src="{{ ASSET_URL }}" data-no-instant></script>
+		{% endassets %}
+
+		{% assets "js_theme" %}
+			<script src="{{ ASSET_URL }}" data-no-instant></script>
+		{% endassets %}
+
+		{% if element %}
+			<script data-no-instant>
+				/* Start CKEditor configurations */
+				window.CKEDITOR_CSS = {
+					{% assets "css_ckeditor" %}editor: '{{ ASSET_URL }}',{% endassets %}
+					{% assets "css_ckeditor_gecko" %}editor_gecko: '{{ ASSET_URL }}',{% endassets %}
+					{% assets "css_ckeditor_ie" %}editor_ie: '{{ ASSET_URL }}',{% endassets %}
+					{% assets "css_ckeditor_ie7" %}editor_ie7: '{{ ASSET_URL }}',{% endassets %}
+					{% assets "css_ckeditor_ie8" %}editor_ie8: '{{ ASSET_URL }}',{% endassets %}
+					{% assets "css_ckeditor_iequirks" %}editor_iequirks: '{{ ASSET_URL }}',{% endassets %}
+					{% assets "css_ckeditor_opera" %}editor_opera: '{{ ASSET_URL }}'{% endassets %}
+				}
+				/* End CKEditor configurations */
+			</script>
+
+			{% assets "js_ckeditor" %}
+				<script src="{{ ASSET_URL }}" data-no-instant></script>
+			{% endassets %}
+		{% endif %}
+	{% endblock %}
+
+	{% block scripts %}{% block js %}{% endblock js %}{% endblock scripts %}
+</body>
+</html>

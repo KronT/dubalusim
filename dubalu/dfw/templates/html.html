@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	{% block base_metas %}
+		{% block metas %}{% endblock %}
+	{% endblock %}
+
+	{% block base_styles %}{% endblock %}
+
+	{% block basic_scripts %}{% endblock %}
+
+	{% block base_extra_header %}
+		{% block extra_header %}{% endblock %}
+	{% endblock %}
+
+</head>
+<!--
+
+        d8888                 8888          8888               888
+       8888888                8888          8888               888
+       888888K                8888          8888               888
+       8888888o.          o8888888 888  888 8888888o  `V8888o. 888 888  888
+     ,A8"   `Y88888b.   .d88  8888 888  888 8888 "88b.    `Y88 888 888  888
+  .8888b      8888888b  +888  8888 888  888 8888  888+,d888888 888 888  888
+  88888$      Y8888888  `888o,8888 l88+.888 8888,d88P 88X` 888 888 l88+.888
+  "888P        "Y888P"    "888888"  "Y888PY "88888P"  `Y8888PY 888  "Y888PY
+   `""
+
+-->
+<body class="pull_top">
+	{% block styles %}{% block css %}{% endblock %}{% endblock %}
+
+	{% block body %}{% block content %}{% endblock %}{% endblock %}
+
+	{% block base_scripts %}{% endblock %}
+
+	{% block scripts %}{% block js %}{% endblock %}{% endblock %}
+</body>
+</html>
