@@ -1,0 +1,36 @@
+{% load crispy_forms_field %}
+
+{% if field.is_hidden %}
+	{{ field }}
+{% else %}
+	<{% if tag %}{{ tag }}{% else %}div{% endif %} id="div_{{ field.auto_id }}" class="control-group{% if wrapper_class %} {{ wrapper_class }}{% endif %}{% if form_show_errors and field.errors and not field|is_form %} error{% endif %}{% if field.field.required and not field|is_form %} required{% endif %}{% if field.css_classes %} {{ field.css_classes }}{% endif %}">
+		{% if field.label and not field|is_checkbox and form_show_labels %}
+			<label for="{{ field.id_for_label }}" class="control-label {% if field.field.required %}requiredField{% endif %}">{% spaceless %}
+				{{ field.label|safe }}{% if field.field.required %}<span class="asteriskField">*</span>{% endif %}
+			{% endspaceless %}</label>
+		{% endif %}
+
+        {% if field|is_form %}
+            <div class="subform{% if field|is_formset %} subformset{% endif %}">
+                {% crispy_form field.field.widget helper %}
+            </div>
+        {% elif field|is_checkboxselectmultiple %}
+            {% include 'bootstrap/layout/checkboxselectmultiple.html' %}
+        {% elif field|is_radioselect %}
+            {% include 'bootstrap/layout/radioselect.html' %}
+        {% else %}
+            <div class="controls">
+                {% if field|is_checkbox and form_show_labels %}
+                    <label for="{{ field.id_for_label }}" class="input-label {% if field.field.required %}requiredField{% endif %}">{% spaceless %}
+                        {% crispy_field field %}
+                        {{ field.label|safe }}
+                    {% endspaceless %}</label>
+                    {% include 'bootstrap/layout/help_text_and_errors.html' %}
+                {% else %}
+                    {% crispy_field field %}
+                    {% include 'bootstrap/layout/help_text_and_errors.html' %}
+                {% endif %}
+            </div>
+        {% endif %}
+	</{% if tag %}{{ tag }}{% else %}div{% endif %}>
+{% endif %}

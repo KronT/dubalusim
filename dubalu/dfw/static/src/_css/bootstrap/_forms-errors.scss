@@ -1,0 +1,33 @@
+.has-error label {
+	font-weight: bold !important;
+}
+
+// FIXME: Not working!
+/*
+//.has-errors > {
+//  @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+//}
+
+// Overrides
+.has-errors > .help-block,
+.has-errors > .control-label {
+  color: #b94a48;
+}
+
+.has-errors > .form-control {
+  border-color: #b94a48;
+  +box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.has-errors > .form-control.focus,
+.has-errors > .form-control:focus {
+  border-color: #953b39;
+  +box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+}
+
+.has-errors > .input-group-addon {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #b94a48;
+}
+*/

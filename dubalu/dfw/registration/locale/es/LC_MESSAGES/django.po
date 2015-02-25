@@ -1,0 +1,488 @@
+# Spanish translation for django-registration.
+# Copyright (C) 2007, James Bennet
+# This file is distributed under the same license as the registration package.
+# Ernesto Rico Schmidt <e.rico.schmidt@gmail.com>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: django-registration 0.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-11-05 13:53-0600\n"
+"Last-Translator: German M. Bravo <german.mb@deipi.com>\n"
+"Language-Team: Español <de@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:35
+msgid "Activate users"
+msgstr "Activar usuarios"
+
+#: admin.py:52
+msgid "Re-send activation emails"
+msgstr "Re-enviar emails de activación"
+
+#: forms.py:46
+#, python-format
+msgid ""
+"Please enter a correct %(username)s and password. Note that both fields may "
+"be case-sensitive."
+msgstr ""
+"Por favor corrija %(username)s y contraseña. Note que ambos campos son "
+"sensibles a mayúsculas y minúsculas."
+
+#: forms.py:48
+msgid "This account is inactive."
+msgstr "Esta cuenta esta inactiva."
+
+#: forms.py:68
+msgid "Password"
+msgstr "Contraseña"
+
+#: forms.py:110
+msgid "Remember Me"
+msgstr "Recordar Mi Sesión"
+
+#: forms.py:134
+msgid "New Password"
+msgstr "Nueva Contraseña"
+
+#: forms.py:137
+msgid "Password (again)"
+msgstr "Contraseña (verificación)"
+
+#: forms.py:156
+msgid "The two password fields didn't match."
+msgstr "Los campos de la contraseña no coinciden"
+
+#: forms.py:169
+msgid "User already registered."
+msgstr "Usuario ya registrado."
+
+#: forms.py:182
+msgid "I have read and agree to the Terms of Service"
+msgstr "He leído y acepto los términos de servicio"
+
+#: forms.py:184
+#, python-format
+msgid ""
+"I have read and agree to the <a href=\"%(terms_url)s\" target=\"_blank"
+"\">Terms of Service</a>"
+msgstr ""
+"He leído y acepto los <a href=\"%(terms_url)s\" target=\"_blank\">Términos "
+"de Servicio</a>"
+
+#: forms.py:194
+msgid "Full Name"
+msgstr "Nombre Completo"
+
+#: forms.py:197
+msgid "You must agree to the terms to register"
+msgstr "Tiene que aceptar los términos para registrarte"
+
+#: forms.py:218
+msgid ""
+"This email address is already in use. Please supply a different email "
+"address."
+msgstr ""
+"La dirección de correo electrónico ya está siendo usada. Por favor "
+"proporcione otro correo electrónico. "
+
+#: forms.py:246
+msgid ""
+"Registration using free email addresses is prohibited. Please supply a "
+"different email address."
+msgstr ""
+"El registro usando una dirección de correo electrónico gratuito está "
+"prohibido. Por favor proporcione otra dirección."
+
+#: forms.py:251
+msgid "Email"
+msgstr "Email"
+
+#: models.py:196
+msgid "user"
+msgstr "usuario"
+
+#: models.py:197
+msgid "activation key"
+msgstr "clave de activación"
+
+#: models.py:202
+msgid "registration profile"
+msgstr "perfil de registro"
+
+#: models.py:203
+msgid "registration profiles"
+msgstr "perfiles de registro"
+
+#: sections.py:21
+msgid "Sign up"
+msgstr "Abra una cuenta"
+
+#: sections.py:28
+msgid "Sign in"
+msgstr "Inicie sesión"
+
+#: sections.py:35
+msgid "Sign out"
+msgstr "Terminar sesión"
+
+#: sections.py:48
+msgid "Registration"
+msgstr "Registro"
+
+#: templates/registration/_login_links.html:4
+msgid "Forgot password?"
+msgstr "¿Olvidó su contraseña?"
+
+#: templates/registration/_login_links.html:5
+msgid "Reset it!"
+msgstr "¡Restablézcala!"
+
+#: templates/registration/_login_links.html:9
+#: templates/registration/_password_reset_form_links.html:4
+msgid "Don't have an account?"
+msgstr "¿Aún no tiene una cuenta?"
+
+#: templates/registration/_login_links.html:10
+#: templates/registration/_password_reset_form_links.html:5
+msgid "Sign up!"
+msgstr "¡Regístrese!"
+
+#: templates/registration/_password_reset_form_links.html:9
+#: templates/registration/_registration_form_links.html:4
+msgid "Already have an account?"
+msgstr "¿Ya tiene una cuenta?"
+
+#: templates/registration/_password_reset_form_links.html:10
+#: templates/registration/_registration_form_links.html:5
+msgid "Sign in!"
+msgstr "¡Inicie sesión!"
+
+#: templates/registration/activate.html:11
+msgid "Activated!"
+msgstr "¡Activado!"
+
+#: templates/registration/activate.html:12
+msgid "Your account is now active. Welcome!"
+msgstr "Su cuenta ha sido activada. ¡Bienvenido!"
+
+#: templates/registration/activate.html:14
+#, python-format
+msgid "<a href=\"%(login_url)s\">Sign In</a>"
+msgstr "<a href=\"%(login_url)s\">Entrar</a>"
+
+#: templates/registration/activate.html:17
+msgid "Activaton Failed!"
+msgstr "¡Activación Fallida!"
+
+#: templates/registration/activate.html:18
+msgid ""
+"Perhaps your activation key is too old or the account has already been "
+"activated."
+msgstr "Su clave de activación es muy vieja o la cuenta ya ha sido activada."
+
+#: templates/registration/activation_email.html:5
+#: templates/registration/activation_email_subject.txt:2
+#, python-format
+msgctxt "fem"
+msgid "Welcome to %(SITE_NAME)s"
+msgstr "Bienvenida a %(SITE_NAME)s"
+
+#: templates/registration/activation_email.html:5
+#: templates/registration/activation_email_subject.txt:2
+#, python-format
+msgctxt "mas"
+msgid "Welcome to %(SITE_NAME)s"
+msgstr "Bienvenido a %(SITE_NAME)s"
+
+#: templates/registration/activation_email.html:5
+#: templates/registration/activation_email_subject.txt:2
+#, python-format
+msgid "Welcome to %(SITE_NAME)s"
+msgstr "Bienvenido a %(SITE_NAME)s"
+
+#: templates/registration/activation_email.html:8
+#: templates/registration/activation_email.txt:3
+#, python-format
+msgid "This is your activation email for %(SITE_NAME)s"
+msgstr "Este es el email de activación para  %(SITE_NAME)s"
+
+#: templates/registration/activation_email.html:11
+#: templates/registration/activation_email.txt:5
+#, python-format
+msgctxt "fem"
+msgid "Thank you for signing up at %(SITE_NAME)s!"
+msgstr "¡Gracias por registrarse en %(SITE_NAME)s!"
+
+#: templates/registration/activation_email.html:11
+#: templates/registration/activation_email.txt:5
+#, python-format
+msgctxt "mas"
+msgid "Thank you for signing up at %(SITE_NAME)s!"
+msgstr "¡Gracias por registrarse en %(SITE_NAME)s!"
+
+#: templates/registration/activation_email.html:11
+#: templates/registration/activation_email.txt:5
+#, python-format
+msgid "Thank you for signing up at %(SITE_NAME)s!"
+msgstr "¡Gracias por registrarse en %(SITE_NAME)s!"
+
+#: templates/registration/activation_email.html:14
+#, python-format
+msgid ""
+"<p><strong>Activate your account, otherwise it will expire in "
+"%(expiration_days)s days.</strong></p>\n"
+"\t<p>To activate your account, please click the link below:</p>\n"
+"\n"
+"\t<p><a style=\"color:%(BASE_COLOR)s;\" href=\"%(activation_url)s\">"
+"%(activation_url)s</a></p>\n"
+"\n"
+"\t<p>We hope you enjoy the %(SITE_NAME)s experience!</p>"
+msgstr ""
+"<p><strong>Active su cuenta, de lo contrario expirará en %(expiration_days)s "
+"días.</strong></p>\n"
+"\t\t\t\t<p>Para activar su cuenta, favor de ir a la dirección: </p>\n"
+"\n"
+"\t\t\t\t<p><a style=\"color:%(BASE_COLOR)s;\" href=\"%(activation_url)s\">"
+"%(activation_url)s</a></p>\n"
+"\n"
+"\t\t\t\t<p>Esperamos disfrute la experiencia %(SITE_NAME)s </p>"
+
+#: templates/registration/activation_email.txt:8
+#, python-format
+msgid ""
+"Activate your account, otherwise it will expire in %(expiration_days)s "
+"days.\n"
+"To activate your account, please visit the link below:\n"
+"\n"
+"%(activation_url)s\n"
+"\n"
+"We hope you enjoy the %(SITE_NAME)s experience!"
+msgstr ""
+"Active su cuenta, de lo contrario expirará en %(expiration_days)s días.\n"
+"Para activar su cuenta, favor de visitar a la dirección:\n"
+"\n"
+"%(activation_url)s\n"
+"\n"
+"¡Esperamos disfrute la experiencia %(SITE_NAME)s!"
+
+#: templates/registration/activation_email.txt:15
+#, python-format
+msgid ""
+"\n"
+"Sincerely,\n"
+"The %(SITE_NAME)s Team\n"
+"%(SITE_URL)s\n"
+msgstr ""
+"\n"
+"Atentamente,\n"
+"    El Equipo de %(SITE_NAME)s\n"
+"    %(SITE_URL)s\n"
+
+#: templates/registration/login.html:9
+#: templates/registration/password_reset_complete.html:8
+msgid "Log in"
+msgstr "Entrar"
+
+#: templates/registration/logout.html:5
+msgid "Logged out"
+msgstr "Salir"
+
+#: templates/registration/password_change_done.html:5
+msgid "Password changed"
+msgstr "Contraseña actualizada"
+
+#: templates/registration/password_change_form.html:9
+#: templates/registration/password_reset_confirm.html:12
+#: templates/registration/password_reset_form.html:9
+#: templates/registration/registration_form.html:9
+msgid "Submit"
+msgstr "Enviar"
+
+#: templates/registration/password_reset_complete.html:6
+msgid "Password reset successfully"
+msgstr "La contraseña fue actualizada con éxito"
+
+#: templates/registration/password_reset_confirm.html:17
+msgid "Password reset failed"
+msgstr "Falla en el restablecimiento de la contraseña"
+
+#: templates/registration/password_reset_done.html:5
+msgid "Email with password reset instructions has been sent."
+msgstr "Las instrucciones para renovar su contraseña han sido enviadas."
+
+#: templates/registration/password_reset_email.html:4
+#, python-format
+msgid "Password reset for %(SITE_NAME)s"
+msgstr "Cambio de contraseña en %(SITE_NAME)s"
+
+#: templates/registration/password_reset_email.html:7
+#: templates/registration/password_reset_email.txt:5
+#, python-format
+msgid ""
+"You're receiving this e-mail because you requested a password reset for your "
+"user account at %(SITE_NAME)s."
+msgstr ""
+"Ha recibido este correo electrónico porque solicitó renovar su contraseña de "
+"usuario en  %(SITE_NAME)s."
+
+#: templates/registration/password_reset_email.html:10
+#: templates/registration/password_reset_email.txt:8
+msgid "Please go to the following page and choose a new password:"
+msgstr "Favor de ir a la siguiente página y escoger una contraseña nueva:"
+
+#: templates/registration/password_reset_email.html:13
+#: templates/registration/password_reset_email.txt:11
+msgid "Thanks for using our site!"
+msgstr "¡Gracias por utilizar nuestro sitio web!"
+
+#: templates/registration/password_reset_email.txt:13
+#, python-format
+msgid ""
+"Sincerely,\n"
+"    The %(SITE_NAME)s Team\n"
+"    %(SITE_URL)s"
+msgstr ""
+"Atentamente,\n"
+"    El equipo %(SITE_NAME)s\n"
+"    %(SITE_URL)s"
+
+#: templates/registration/password_reset_email_subject.txt:1
+#, python-format
+msgid "%(SITE_NAME)s password reset"
+msgstr "%(SITE_NAME)s renovar contraseña"
+
+#: templates/registration/registration_closed.html:5
+msgid "Registration is currently closed."
+msgstr "El registro esta cerrado por el momento."
+
+#: templates/registration/registration_complete.html:5
+msgid "You are now registered. Activation email sent."
+msgstr ""
+"Se ha registrado con éxito!. Se ha enviado el correo de activación de su "
+"cuenta."
+
+#~ msgid "Sugn up!"
+#~ msgstr "¡Regístrese!"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "\t\tSincerely,<br />\n"
+#~ "\t\t<strong>The %(SITE_NAME)s Team</strong><br />\n"
+#~ "\t\t<a style=\"color:%(BASE_COLOR)s;\" href=\"%(SITE_URL)s\">"
+#~ "%(SITE_URL)s</a>\n"
+#~ "\t</p>"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "\t\tAtentamente,<br />\n"
+#~ "\t\t<strong>El equipo %(SITE_NAME)s</strong><br />\n"
+#~ "\t\t<a style=\"color:%(BASE_COLOR)s;\" href=\"%(SITE_URL)s\">"
+#~ "%(SITE_URL)s</a>\n"
+#~ "\t</p>"
+
+#, fuzzy
+#~ msgctxt "fem"
+#~ msgid ""
+#~ "Dear %(full_name)s,\n"
+#~ "Thank you for your payment at %(SITE_NAME)s!"
+#~ msgstr ""
+#~ "<h2>Apreciable %(full_name)s,</h2>\n"
+#~ "\t\t\t\t<h1 style=\"color:%(BASE_COLOR)s;\">Gracias por registrarse en "
+#~ "%(SITE_NAME)s!</h1>"
+
+#, fuzzy
+#~ msgctxt "mas"
+#~ msgid ""
+#~ "Dear %(full_name)s,\n"
+#~ "Thank you for your payment at %(SITE_NAME)s!"
+#~ msgstr ""
+#~ "<h2>Apreciable %(full_name)s,</h2>\n"
+#~ "\t\t\t\t<h1 style=\"color:%(BASE_COLOR)s;\">Gracias por registrarse en "
+#~ "%(SITE_NAME)s!</h1>"
+
+#, fuzzy
+#~ msgid ""
+#~ "Dear %(full_name)s,\n"
+#~ "Thank you for your payment at %(SITE_NAME)s!"
+#~ msgstr ""
+#~ "<h2>Apreciable %(full_name)s,</h2>\n"
+#~ "\t\t\t\t<h1 style=\"color:%(BASE_COLOR)s;\">Gracias por registrarse en "
+#~ "%(SITE_NAME)s!</h1>"
+
+#~ msgid "Register!"
+#~ msgstr "¡Regístrese!"
+
+#~ msgctxt "fem"
+#~ msgid "Welcome to"
+#~ msgstr "Bienvenido a"
+
+#~ msgctxt "mas"
+#~ msgid "Welcome to"
+#~ msgstr "Bienvenido a"
+
+#~ msgid "Welcome to"
+#~ msgstr "Bienvenido a"
+
+#, fuzzy
+#~ msgctxt "fem"
+#~ msgid ""
+#~ "<h2>Dear %(full_name)s,</h2>\n"
+#~ "\t<h1 style=\"color:%(BASE_COLOR)s;\">Thank you for signing up at "
+#~ "%(SITE_NAME)s!</h1>"
+#~ msgstr ""
+#~ "<h2>Apreciable %(full_name)s,</h2>\n"
+#~ "\t\t\t\t<h1 style=\"color:%(BASE_COLOR)s;\">Gracias por registrarse en "
+#~ "%(SITE_NAME)s!</h1>"
+
+#, fuzzy
+#~ msgctxt "mas"
+#~ msgid ""
+#~ "<h2>Dear %(full_name)s,</h2>\n"
+#~ "\t<h1 style=\"color:%(BASE_COLOR)s;\">Thank you for signing up at "
+#~ "%(SITE_NAME)s!</h1>"
+#~ msgstr ""
+#~ "<h2>Apreciable %(full_name)s,</h2>\n"
+#~ "\t\t\t\t<h1 style=\"color:%(BASE_COLOR)s;\">Gracias por registrarse en "
+#~ "%(SITE_NAME)s!</h1>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<h2>Dear %(full_name)s,</h2>\n"
+#~ "\t<h1 style=\"color:%(BASE_COLOR)s;\">Thank you for signing up at "
+#~ "%(SITE_NAME)s!</h1>"
+#~ msgstr ""
+#~ "<h2>Apreciable %(full_name)s,</h2>\n"
+#~ "\t\t\t\t<h1 style=\"color:%(BASE_COLOR)s;\">Gracias por registrarse en "
+#~ "%(SITE_NAME)s!</h1>"
+
+#~ msgid "Not member"
+#~ msgstr "No es miembro"
+
+#~ msgid "Activate account at"
+#~ msgstr "Activar cuenta en"
+
+#~ msgid "Link is valid for %(expiration_days)s days."
+#~ msgstr "Link valido por %(expiration_days)s days."
+
+#~ msgid "username"
+#~ msgstr "nombre de usuario"
+
+#~ msgid "email address"
+#~ msgstr "dirección de coreo electrónico"
+
+#~ msgid "Usernames can only contain letters, numbers and underscores"
+#~ msgstr ""
+#~ "Los nombres de usuarios sólo pueden contener letras, números y guiones "
+#~ "bajos"
+
+#~ msgid "This username is already taken. Please choose another."
+#~ msgstr "Este nombre de usuario ya está ocupado. Por favor escoge otro"
+
+#~ msgid "You must type the same password each time"
+#~ msgstr "Tienes que introducir la misma contraseña cada vez"

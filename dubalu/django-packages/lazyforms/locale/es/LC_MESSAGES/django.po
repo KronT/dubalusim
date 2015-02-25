@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Sergio Bravo Solorio <sbravomx@gmail.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forms.py:17
+msgid "Actualizar"
+msgstr "Actualizar"
+
+#: forms.py:20
+msgid "cancelar"
+msgstr "cancelar"
+
+#: forms.py:57
+msgid "editar"
+msgstr "editar"
+
+#: forms.py:101
+msgid "Cantidad"
+msgstr "Cantidad"
+
+#: forms.py:157
+msgid "Inicio"
+msgstr "Inicio"
+
+#: forms.py:160
+msgid "Fin"
+msgstr "Fin"
+
+#: views.py:233
+msgid "<strong>Success!</strong> The object was successfully created."
+msgstr "<strong>¡Exitoso!</strong> El objeto se creó satisfactoriamente."
+
+#: views.py:234
+msgid ""
+"<strong>Failed!</strong> The object could not be created. Please correct the "
+"indicated errors and try again."
+msgstr ""
+"<strong>¡Falló!</strong> El objeto no pudo ser creado. Por favor corrija los "
+"errores indicados e intente de nuevo."
+
+#: views.py:252
+msgid "<strong>Success!</strong> The object was successfully updated."
+msgstr "<strong>¡Exitoso!</strong> El objeto se actualizó satisfactoriamente."
+
+#: views.py:253
+msgid ""
+"<strong>Failed!</strong> The object could not be updated. Please correct the "
+"indicated errors and try again."
+msgstr ""
+"<strong>¡Falló!</strong> El objeto no pudo ser actualizado. Por favor, "
+"corrija los errores indicados e intente de nuevo."

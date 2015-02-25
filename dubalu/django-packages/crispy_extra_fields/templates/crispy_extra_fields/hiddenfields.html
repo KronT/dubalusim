@@ -1,0 +1,11 @@
+{% for input in hidden %}
+	{{ input }}
+{% endfor %}
+{% for field_name, field_value in fields.items %}
+	<input type="hidden"
+		name="{{ field_name }}"
+		value="{{ field_value }}"
+		id="id-{{ field_name }}"
+	    {{ flat_attrs|safe }}
+	/>
+{% endfor %}

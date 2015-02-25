@@ -1,0 +1,70 @@
+
+.col-pull-icon-1 {
+	padding-right: 22px;
+	margin-right: -18px;
+}
+
+.col-pull-icon-2 {
+	padding-right: 40px;
+	margin-right: -36px;
+}
+
+.col-icon {
+	position: relative;
+	float: left;
+	width: 18px;
+	min-height: 1px;
+	padding-top: 5px;
+}
+
+
+.icon-green::before {
+	color: #3cac1b;
+}
+
+.icon-red::before {
+	color: #f13f2d;
+}
+
+.icon-blue::before {
+	color: #2d6fff;
+}
+
+.icon-black::before {
+	color: #000;
+}
+
+.icon-white::before {
+	color: #fff;
+}
+
+.icon-gray-darker::before {
+	color: $gray-darker;
+}
+.icon-gray-dark::before {
+	color: $gray-dark;
+}
+.icon-gray::before {
+	color: $gray;
+}
+.icon-gray-light::before {
+	color: $gray-light;
+}
+.icon-gray-lighter::before {
+	color: $gray-lighter;
+}
+.icon-primary::before {
+	color: $brand-primary;
+}
+.icon-success::before {
+	color: $brand-success;
+}
+.icon-info::before {
+	color: $brand-info;
+}
+.icon-warning::before {
+	color: $brand-warning;
+}
+.icon-danger::before {
+	color: $brand-danger;
+}

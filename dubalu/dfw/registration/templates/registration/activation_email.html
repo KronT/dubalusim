@@ -1,0 +1,20 @@
+{% extends "base_mail.html" %}
+{% load i18n capture %}
+
+{% block teaser %}
+	{% if gender == 'F' %}{% blocktrans context "fem" %}Welcome to {{ SITE_NAME }}{% endblocktrans %}{% elif gender == 'M' %}{% blocktrans context "mas" %}Welcome to {{ SITE_NAME }}{% endblocktrans %}{% else %}{% blocktrans %}Welcome to {{ SITE_NAME }}{% endblocktrans %}{% endif %}
+{% endblock %}
+
+{% block subtitle %}{% blocktrans %}This is your activation email for {{ SITE_NAME }}{% endblocktrans %}{% endblock %}
+
+{% block content %}
+	<h1 style="color:{{ BASE_COLOR }};">{% if gender == 'F' %}{% blocktrans context "fem" %}Thank you for signing up at {{ SITE_NAME }}!{% endblocktrans %}{% elif gender == 'M' %}{% blocktrans context "mas" %}Thank you for signing up at {{ SITE_NAME }}!{% endblocktrans %}{% else %}{% blocktrans %}Thank you for signing up at {{ SITE_NAME }}!{% endblocktrans %}{% endif %}</h1>
+
+	{% capture as activation_url %}{{ SITE_SECURE_URL }}{% url 'registration_activate' activation_key %}{% endcapture %}
+	{% blocktrans %}<p><strong>Activate your account, otherwise it will expire in {{ expiration_days }} days.</strong></p>
+	<p>To activate your account, please click the link below:</p>
+
+	<p><a style="color:{{ BASE_COLOR }};" href="{{ activation_url }}">{{ activation_url }}</a></p>
+
+	<p>We hope you enjoy the {{ SITE_NAME }} experience!</p>{% endblocktrans %}
+{% endblock %}

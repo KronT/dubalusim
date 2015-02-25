@@ -1,0 +1,16 @@
+// Base Class Definition
+// -------------------------
+
+.#{$fa-css-prefix} {
+  display: inline-block;
+  font-family: DubaluIcons;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.headerlink, .admonition-title {
+	@extend .#{$fa-css-prefix};
+}

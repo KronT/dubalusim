@@ -1,0 +1,46 @@
+<script>
+	$(function() {
+		var $dates_filter = $('#dates-filter'),
+			inputs = $dates_filter
+				.datepicker({
+					todayHighlight: true,
+					autoclose: true
+				})
+				.data('datepicker').inputs,
+			$date_from = $(inputs[0]),
+			$date_to = $(inputs[1]);
+
+		// Set component of datepicker objects to be the parent (for positioning)
+		$date_from.data('datepicker').component = $dates_filter;
+		$date_to.data('datepicker').component = $dates_filter;
+
+		$dates_filter
+			.on('click', function(event) {
+				$date_from.datepicker('show');
+			})
+			.on('changeDate', function(event) {
+				if (event.target == inputs[0]) {
+					$date_to.datepicker('show');
+				} else {
+					$(this).closest('form').submit();
+				}
+			});
+	});
+</script>
+<div id="dates-filter" class="btn btn-default input-daterange">
+	<input type="hidden" name="date-from" />
+	<i class="fa fa-calendar"></i>
+	<input type="hidden"  name="date-to" />
+</div>
+<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+	<span class="caret"></span>
+	<span class="sr-only">{% trans "Toggle Dropdown" %}</span>
+</button>
+<ul class="dropdown-menu" role="menu">
+	<li><button type="submit" name="date" class="a btn btn-link fa fa-filter" value="this_week"> {{ this_week }}</button></li>
+	<li><button type="submit" name="date" class="a btn btn-link fa fa-filter" value="this_month"> {{ this_month }}</button></li>
+	<li><button type="submit" name="date" class="a btn btn-link fa fa-filter" value="this_year"> {{ this_year }}</button></li>
+	<li><button type="submit" name="date" class="a btn btn-link fa fa-filter" value="previous_week"> {{ previous_week }}</button></li>
+	<li><button type="submit" name="date" class="a btn btn-link fa fa-filter" value="previous_month"> {{ previous_month }}</button></li>
+	<li><button type="submit" name="date" class="a btn btn-link fa fa-filter" value="previous_year"> {{ previous_year }}</button></li>
+</ul>

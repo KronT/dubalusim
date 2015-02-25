@@ -1,0 +1,12 @@
+{% load crispy_forms_tags %}
+
+{% if not show_form %}
+	{% include preload_template %}
+	<div style='display: none'>
+{% endif %}
+
+{% crispy form helper %}
+
+{% if not show_form %}
+	</div>
+{% endif %}

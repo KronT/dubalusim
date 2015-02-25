@@ -1,0 +1,39 @@
+@import "compass/css3/box-shadow";
+@import "compass/typography/text/replacement";
+
+@mixin search-input(
+    $font-size: 11px,
+    $border-radius: 10px,
+    $border-color: #C2C7D0,
+    $border-width: 1px,
+    $box-shadow: #fff 1px 1px 0 0,
+    $height: 1.23em,
+    $width: 150px,
+    $padding: 2px 8px,
+) {
+  position: relative;
+  input {
+    width: $width;
+    padding: $padding;
+    height: $height;
+    line-height: $height;
+    font-size: $font-size;
+    padding-right: 26px;
+    margin-right: -26px;
+    border: $border-width solid $border-color;
+    +border-radius: $border-radius;
+    +box-shadow: rgba(black, 0.2) 1px 1px 4px 0 inset, $box-shadow;
+    -webkit-background-clip: padding-box; }
+  button {
+    vertical-align: bottom;
+    width: 26px;
+    height: $height;
+    font-size: $font-size;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: nth($padding, 1) + $border-width 0 nth($padding, 3) + $border-width;
+    +box-shadow: none !important;
+    cursor: pointer;
+    @include replace-text("images/dubalu/search-input.png");
+    } }

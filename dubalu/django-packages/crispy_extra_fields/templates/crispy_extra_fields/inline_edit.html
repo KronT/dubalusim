@@ -1,0 +1,15 @@
+{% load crispy_forms_tags %}
+{% load simple_tags %}
+
+{% if can_edit_item %}
+	{% with item_id=pk|md5 %}
+		<div id="id_inline_edit_{{ item_id }}-{{ field_name }}" class="inline-edit {{ css_class }}" method="get" action="{{ url }}" data-target="#data_inline_edit_{{ item_id }}-{{ field_name }}">
+			{% crispy form loadable_detail_helper %}
+		</div>
+		<div id="data_inline_edit_{{ item_id }}-{{ field_name }}" class="inline-edit {{ css_class }}" rel="#id_inline_edit_{{ item_id }}-{{ field_name }}" method="post" action="{{ url }}" data-source="#data_inline_edit_{{ item_id }}-{{ field_name }}" data-target="#data_inline_edit_{{ item_id }}-{{ field_name }}" style="display: none;"></div>
+	{% endwith %}
+{% else %}
+	<div class="{{ css_class }}">
+		{% crispy form detail_helper %}
+	</div>
+{% endif %}

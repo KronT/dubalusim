@@ -1,0 +1,37 @@
+<div class="pull-right" style="padding: 8pt 14pt 0 0">
+	<ul class="nav nav-pills" role="tablist">
+		{% if can_export_items %}
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				<i class="fa fa-cloud-download"></i>
+				{% trans "Exportar" %} <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu" role="menu">
+				<li>
+					{% resolve None "get_export_all_link" %}
+				</li>
+				<li>
+					{% resolve None "get_export_list_link" %}
+				</li>
+			</ul>
+		</li>
+		{% endif %}
+		{% if can_import_items %}
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				<i class="fa fa-cloud-upload"></i>
+				{% trans "Importar" %} <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu" role="menu">
+				<li>
+					{% resolve None "get_import_link" %}
+				</li>
+				<li class="divider"></li>
+				<li>
+					{% resolve None "get_template_link" %}
+				</li>
+			</ul>
+		</li>
+		{% endif %}
+	</ul>
+</div>

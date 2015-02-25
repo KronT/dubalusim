@@ -1,0 +1,117 @@
+{% extends base_template %}
+
+{% load i18n %}
+{% load assets %}
+{% load morsels %}
+{% load crispy_forms_tags %}
+{% load simple_tags %}
+
+{% block css %}
+	{% assets filters="pyscss", output="bs_admin_table.css", "src/css/bs_admin_table.scss", "src/css/tables.scss" %}
+		<link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" data-instant-volatile />
+	{% endassets %}
+	{{ block.super }}
+{% endblock %}
+
+{% block js %}
+	{% assets filters="uglifyjs", output="bs_admin_table.js", "src/js/bs_admin_table.js", "src/js/jquery.touchSwipe.js" %}
+		<script type="text/javascript" src="{{ ASSET_URL }}" data-instant-volatile></script>
+	{% endassets %}
+	{{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+{% block extra_filters %}{% endblock %}
+
+<div class="admin-table-list">
+	<div class="table-header">
+		{% if location_tuples %}
+			<ol class="breadcrumb">
+			{% for qs, name in location_tuples %}
+				{% if forloop.last %}
+					<li class="active">{{ name }}</li>
+				{% else %}
+					<li><a href="?{{ qs }}">{{ name }}</a></li>
+				{% endif %}
+			{% endfor %}
+			</ol>
+		{% endif %}
+
+		<div class="filters clearfix">
+			<form class="navbar-form search" role="search">
+				<div class="row">
+					<div class="col-xs-8">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="{% trans 'Search' %}"
+								   name="search" id="search" value="{{ query }}">
+							<div class="input-group-btn" style="width:1px"><!-- fixes input group width on Chrome -->
+								<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+								{{ dates_filter }}
+							</div>
+						</div>
+					</div>
+					{{ filters }}
+				</div>
+
+				{% if over_search_widget %}{{ over_search_widget }}{% endif %}
+				{% if add_url and can_create_items %}
+				<a id="button-new-row" class="btn btn-primary pull-right ladda-button bs-admin"
+					href="{{ add_url }}" {% if add_button_live %}
+						method="get"
+						action="{{ add_url }}"
+						data-provide="lazy-loader"
+						data-target="#new-row-container"
+						data-collapse-class="closed"
+						data-style="expand-left"
+						data-no-instant
+					{% endif %}>
+					{{ add_button_text|safe }}
+				</a>
+				{% endif %}
+				{% if below_search_widget %}{{ below_search_widget }}{% endif %}
+			</form>
+		</div>
+	</div>
+
+	<div class="admin-table">
+		{% if add_url %}
+			<div id="new-row">
+				<div class="wrap">
+					<div id="new-row-container" class="closed bs-admin"
+						method="post"
+						action="{{ add_url }}"
+						data-provide="lazy-loaded"
+						data-target="#new-row-container"
+						data-source="#new-row-container"
+						data-collapse-class="closed"
+						rel="#button-new-row">
+					</div>
+				</div>
+			</div>
+		{% endif %}
+		<div class="clearfix">
+			{% uniqueid as uid %}
+			<div id="{{ uid }}" class="">
+				<table class="table table-bordered dataTable bs-admin-table">
+					<thead>
+						<tr role="row">
+							{% for attr, name, css_class in headers %}
+								<th role="columnheader" tabindex="0" rowspan="1" colspan="1" class="{{ css_class }}">
+									{{ name }}
+								</th>
+							{% endfor %}
+						</tr>
+					</thead>
+
+					<tbody id="bs-admin-table-container" role="alert" aria-live="polite" aria-relevant="all">
+
+						{% include page_template %}
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div><!-- /.padding-md -->
+</div>
+{% endblock %}

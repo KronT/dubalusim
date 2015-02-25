@@ -1,0 +1,6 @@
+<div {% if div.css_id %}id="{{ css_id }}"{% endif %}
+	{% if css_class %}class="{{ css_class }}{% if active %} active{% endif %}"{% endif %} {{ flat_attrs|safe }}>
+	{% for field in fields %}
+	   {{ field|safe }}
+	{% endfor %}
+</div>

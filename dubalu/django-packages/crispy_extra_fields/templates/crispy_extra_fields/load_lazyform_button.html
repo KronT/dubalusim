@@ -1,0 +1,9 @@
+<button type="button" class="{{ field_classes }}" {{ flat_attrs|safe }}>
+	{% if not icon_class %}
+		{{ value }}
+	{% elif icon_first %}
+		<i class='{{ icon_class }}'></i> {{ value }}
+	{% else %}
+		{{ value }} <i class='{{ icon_class }}'></i>
+	{% endif %}
+</button>

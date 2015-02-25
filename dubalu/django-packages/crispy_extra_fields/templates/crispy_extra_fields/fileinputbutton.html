@@ -1,0 +1,15 @@
+{% if INCLUDE_TEXT_INPUT %}
+<div class="input-group">
+    <span class="input-group-btn">
+{% endif %}
+        <span class="{{ field_classes }}">
+        	{% if icon_class %}
+	            <i class="{{ icon_class }}"></i>
+	        {% endif %}
+            {{ text }} <input name="{{ field }}" type="file" {% if multiple %}multiple=""{% endif %}>
+        </span>
+{% if INCLUDE_TEXT_INPUT %}
+    </span>
+    <input type="text" class="form-control" readonly="">
+</div>
+{% endif %}

@@ -1,0 +1,54 @@
+{% load i18n %}
+{% load endless  %}
+{% load capture %}
+{% load common_views %}
+{% load simple_tags %}
+
+{% paginate 15 item_list %}
+
+{% for item in item_list %}
+	{% with item_id=item.pk|md5 item_pk=item.pk|text %}
+		<tr id="id_{{ item_id }}" class="panel admin-row bs-admin"
+			method="get" action="{% url detail_reverse item_pk %}"
+			data-loaded="loaded-detail"
+			data-provide="lazy-loader"
+			data-target="#data_{{ item_id }}"
+			data-collapse-class="collapse"
+			data-ladda-container="#{{ item_id }}_chevron">
+			{% for attr, name, css_class in headers %}
+				<td class="{{ css_class }}">
+					<span class="item-{{ forloop.counter0 }}">{% resolve item attr %}</span>
+					{% if forloop.last %}
+					<a id="{{ item_id }}_chevron" class="btn btn-default btn-item pull-right bs-detail-button ladda-button" data-style="zoom-in"><i class="chevron fa fa-fw fa-chevron-right"></i></a>
+					{% endif %}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr class="panel-collapse">
+			<td colspan="{{ total_columns }}" id="data_{{ item_id }}" class="data-detail collapse bs-admin"
+				{% if edit_reverse %}method="post" action="{% url edit_reverse item_pk %}"{% else %}action=""{% endif %}
+				data-provide="lazy-loaded"
+				data-target="#data_{{ item_id }}"
+				data-source="#data_{{ item_id }}"
+				data-collapse-class="collapse"
+				rel="#id_{{ item_id }}"
+				{% if data_replace_subprefix %}
+					data-subprefix="pf-{{ item_id }}"
+					data-replacewith="{{ data_replace_subprefix }}"
+				{%  endif  %}></td>
+		</tr>
+	{% endwith %}
+{% empty %}
+	<tr>
+		<td colspan="{{ total_columns }}" style="height: 100px; text-align: center; vertical-align: middle; font-family: sans-serif; opacity: .5; ">{% trans "The list is empty" %}</td>
+	</tr>
+{% endfor %}
+
+<tr class="endless-loader">
+	<td colspan="{{ total_columns }}" class="text-center">
+		{% capture as show_more_msg %}{% trans "Show more" %}{% endcapture %}
+		{% capture as loading_msg %}<i class='fa fa-spinner fa-spin'></i> {% trans "Loading..." %}{% endcapture %}
+		{% show_more show_more_msg loading_msg %}
+	</td>
+</tr>
+

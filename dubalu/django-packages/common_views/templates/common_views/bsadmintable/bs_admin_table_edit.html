@@ -1,0 +1,9 @@
+{% extends base_template %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="admin-table-edit">
+	{% crispy form helper %}
+</div>
+{% endblock %}

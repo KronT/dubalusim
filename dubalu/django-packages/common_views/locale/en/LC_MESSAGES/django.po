@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dubalu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-08-07 13:27-0600\n"
+"Last-Translator: German M. Bravo <german.mb@deipi.com>\n"
+"Language-Team: Dubalu <contact@dubalu.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+
+#: bsadmintable/views.py:56
+msgid "<strong>Success!</strong> The object was successfully deleted"
+msgstr "<strong>Success!</strong> The object was successfully deleted"
+
+#: bsadmintable/views.py:67
+msgid "Add"
+msgstr "Add"
+
+#: bsadmintable/views.py:318
+msgid "Undo"
+msgstr "Undo"
+
+#: bsadmintable/views.py:365
+msgid "This week"
+msgstr "This week"
+
+#: bsadmintable/views.py:366
+msgid "This month"
+msgstr "This month"
+
+#: bsadmintable/views.py:367
+msgid "This year"
+msgstr "This year"
+
+#: bsadmintable/views.py:368
+msgid "Previous week"
+msgstr "Previous week"
+
+#: bsadmintable/views.py:369
+msgid "Previous month"
+msgstr "Previous month"
+
+#: bsadmintable/views.py:370
+msgid "Previous year"
+msgstr "Previous year"
+
+#: bsadmintable/views.py:455
+msgid "All"
+msgstr ""
+
+#: bsadmintable/views.py:458
+msgid "Listed"
+msgstr ""
+
+#: bsadmintable/views.py:461
+msgid "Download template"
+msgstr ""
+
+#: bsadmintable/views.py:470
+msgid "From CSV file"
+msgstr ""
+
+#: common/views.py:42
+msgid "There was an error in the form. Please, check the fields marked in red."
+msgstr ""
+"There was an error in the form. Please, check the fields marked in red."
+
+#: common/views.py:53
+msgid "<strong>Success!</strong> The object was successfully created."
+msgstr "<strong>Success!</strong> The object was successfully created."
+
+#: common/views.py:54
+msgid ""
+"<strong>Failed!</strong> The object could not be created. Please correct the "
+"indicated errors and try again."
+msgstr ""
+"<strong>Failed!</strong> The object could not be created. Please correct the "
+"indicated errors and try again."
+
+#: common/views.py:76
+msgid "<strong>Success!</strong> The object was successfully updated."
+msgstr "<strong>Success!</strong> The object was successfully updated."
+
+#: common/views.py:77
+msgid ""
+"<strong>Failed!</strong> The object could not be updated. Please correct the "
+"indicated errors and try again."
+msgstr ""
+"<strong>Failed!</strong> The object could not be updated. Please correct the "
+"indicated errors and try again."
+
+#: templates/common_views/bsadmintable/bs_admin_table_import_export_menu.html:7
+msgid "Exportar"
+msgstr ""
+
+#: templates/common_views/bsadmintable/bs_admin_table_import_export_menu.html:23
+msgid "Importar"
+msgstr ""
+
+#: templates/common_views/bsadmintable/bs_admin_table_list.html:45
+msgid "Search"
+msgstr "Search"
+
+#: templates/common_views/bsadmintable/bs_admin_table_list_page.html:43
+msgid "The list is empty"
+msgstr "The list is empty"
+
+#: templates/common_views/bsadmintable/bs_admin_table_list_page.html:49
+msgid "Show more"
+msgstr "Show more"
+
+#: templates/common_views/bsadmintable/bs_admin_table_list_page.html:50
+msgid "Loading..."
+msgstr "Loading..."

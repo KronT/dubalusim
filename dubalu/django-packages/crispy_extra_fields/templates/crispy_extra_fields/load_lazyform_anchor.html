@@ -1,0 +1,9 @@
+<a href="javascript:;" class="{{ field_classes }}" {{ flat_attrs|safe }}>
+	{% if not icon_class %}
+		{{ value|safe }}
+	{% elif icon_first %}
+		<i class="{{ icon_class }}"></i> {{ value|safe }}
+	{% else %}
+		{{ value|safe }} <i class="{{ icon_class }}"></i>
+	{% endif %}
+</a>

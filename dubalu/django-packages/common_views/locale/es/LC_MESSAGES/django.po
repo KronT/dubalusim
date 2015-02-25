@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dubalu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-11-10 15:28-0600\n"
+"Last-Translator: Sergio Bravo Solorio <sbravomx@gmail.com>\n"
+"Language-Team: Dubalu <contact@dubalu.com>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.7\n"
+
+#: bsadmintable/views.py:56
+msgid "<strong>Success!</strong> The object was successfully deleted"
+msgstr "<strong>¡Enhorabuena!</strong> El objeto fue eliminado exitosamente."
+
+#: bsadmintable/views.py:67
+msgid "Add"
+msgstr "Agregar"
+
+#: bsadmintable/views.py:318
+msgid "Undo"
+msgstr "Deshacer"
+
+#: bsadmintable/views.py:365
+msgid "This week"
+msgstr "Esta semana"
+
+#: bsadmintable/views.py:366
+msgid "This month"
+msgstr "Este mes"
+
+#: bsadmintable/views.py:367
+msgid "This year"
+msgstr "Este año"
+
+#: bsadmintable/views.py:368
+msgid "Previous week"
+msgstr "Semana anterior"
+
+#: bsadmintable/views.py:369
+msgid "Previous month"
+msgstr "Mes anterior"
+
+#: bsadmintable/views.py:370
+msgid "Previous year"
+msgstr "Año anterior"
+
+#: bsadmintable/views.py:455
+msgid "All"
+msgstr "Todos"
+
+#: bsadmintable/views.py:458
+msgid "Listed"
+msgstr "Listados"
+
+#: bsadmintable/views.py:461
+msgid "Download template"
+msgstr "Descargar plantilla"
+
+#: bsadmintable/views.py:470
+msgid "From CSV file"
+msgstr "Desde archivo CSV"
+
+#: common/views.py:42
+msgid "There was an error in the form. Please, check the fields marked in red."
+msgstr ""
+"Hubo un error en el formulario. Por favor, verifique los campos marcados en "
+"rojo."
+
+#: common/views.py:53
+msgid "<strong>Success!</strong> The object was successfully created."
+msgstr "<strong>¡Enhorabuena!</strong> El objeto fue agregado exitosamente."
+
+#: common/views.py:54
+msgid ""
+"<strong>Failed!</strong> The object could not be created. Please correct the "
+"indicated errors and try again."
+msgstr ""
+"<strong>¡Error!</strong> El objeto no se ha podido agregar, favor de "
+"corregir los errores marcados e intente de nuevo."
+
+#: common/views.py:76
+msgid "<strong>Success!</strong> The object was successfully updated."
+msgstr "<strong>¡Enhorabuena!</strong> El objeto fue actualizado exitosamente."
+
+#: common/views.py:77
+msgid ""
+"<strong>Failed!</strong> The object could not be updated. Please correct the "
+"indicated errors and try again."
+msgstr ""
+"<strong>¡Error!</strong> El objeto no se ha podido actualizar, favor de "
+"corregir los errores marcados e intente de nuevo."
+
+#: templates/common_views/bsadmintable/bs_admin_table_import_export_menu.html:7
+msgid "Exportar"
+msgstr "Exportar"
+
+#: templates/common_views/bsadmintable/bs_admin_table_import_export_menu.html:23
+msgid "Importar"
+msgstr "Importar"
+
+#: templates/common_views/bsadmintable/bs_admin_table_list.html:45
+msgid "Search"
+msgstr "Búsqueda"
+
+#: templates/common_views/bsadmintable/bs_admin_table_list_page.html:43
+msgid "The list is empty"
+msgstr "La lista está vacía"
+
+#: templates/common_views/bsadmintable/bs_admin_table_list_page.html:49
+msgid "Show more"
+msgstr "Mostrar más"
+
+#: templates/common_views/bsadmintable/bs_admin_table_list_page.html:50
+msgid "Loading..."
+msgstr "Cargando..."

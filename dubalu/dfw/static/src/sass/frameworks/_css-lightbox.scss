@@ -1,0 +1,22 @@
+// CSS-Lightboxes ------------------------------------------------------------
+// Plugin by Eric Meyer - http://eric.oddbird.net/
+
+// These lightboxes work in all modern standards-complient browsers with
+// pure CSS. Additional support for Internet Explorer and older browsers
+// is made possible with a small amount of JavaScript.
+
+
+// Defaults ------------------------------------------------------------------
+
+// Every lightbox includes an outer container and an inner box
+// Set this to a selector for that box.
+$lightbox-box-to-style  : "> div"     !default;
+
+// Set the default fade time, or leave false for no fade
+$lightbox-fade          : false       !default;
+
+// Set the active selector to be used by the JS fallback
+$lightbox-active        : ".active"   !default;
+
+// Import --------------------------------------------------------------------
+@import "css-lightbox/lightbox";

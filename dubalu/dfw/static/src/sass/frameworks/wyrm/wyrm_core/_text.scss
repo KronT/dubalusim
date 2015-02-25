@@ -1,0 +1,106 @@
+
+// Text
+//
+// Text handling and other base styles. Can be safely used on any element, not just paragraph tags.
+//
+// Markup:
+// <p class="{$modifiers}">The best movie of all time is either Network or Rollerball.</p>
+//
+// .wy-text-small           - Smaller, 80% text. Can also use the `<small>` tag for this.
+// .wy-text-large           - Larger, 120% text.
+// .wy-text-left            - To the left.
+// .wy-text-right           - To the right.
+// .wy-text-center          - To the center.
+// .wy-text-center          - To the center.
+// .wy-text-strike          - Strikethrough.
+// .wy-text-neutral         - Simply applies the normal text color.
+// .wy-text-info            - Info text.
+// .wy-text-success         - Success text.
+// .wy-text-warning         - Warning text.
+// .wy-text-danger          - Danger text.
+//
+// Styleguide 4.1
+
+.wy-text-left {
+  text-align: left;
+}
+
+.wy-text-center {
+  text-align: center;
+}
+
+.wy-text-right {
+  text-align: right;
+}
+
+.wy-text-large {
+  font-size: 120%;
+}
+
+.wy-text-normal {
+  font-size: 100%;
+}
+
+.wy-text-small, small {
+  font-size: 80%;
+}
+
+.wy-text-strike {
+  text-decoration: line-through;
+}
+
+.wy-text-warning {
+  color: $orange !important;
+}
+
+a.wy-text-warning:hover {
+  color: lighten($orange, 10%) !important;
+}
+
+.wy-text-info {
+  color: $blue !important;
+}
+
+a.wy-text-info:hover {
+  color: lighten($blue, 10%) !important;
+}
+
+.wy-text-success {
+  color: $green !important;
+}
+
+a.wy-text-success:hover {
+  color: lighten($green, 10%) !important;
+}
+
+.wy-text-danger {
+  color: $red !important;
+}
+
+a.wy-text-danger:hover {
+  color: lighten($red, 10%) !important;
+}
+
+.wy-text-neutral {
+  color: $text-color !important;
+}
+
+a.wy-text-neutral:hover {
+  color: lighten($text-color, 10%) !important;
+}
+
+.wy-code {
+  border-radius: 4px;
+  white-space: nowrap;
+  max-width: 100%;
+  background: $text-code-background-color;
+  border: solid 1px $text-code-border-color;
+  font-size: 80%;
+  padding: 3px 5px 1px;
+  font-family: $code-font-family;
+  color: $text-code-color;
+  overflow-x: auto;
+  &.code-large {
+    font-size: 90%;
+  }
+}

@@ -1,0 +1,294 @@
+// 2014122301
+$navbar-inverse-link-active-bg: transparent;
+$popover-max-width:             300px;
+
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// Reset
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+//@import "bootstrap/glyphicons";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+
+// Components
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+@import "bootstrap/jumbotron";
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/responsive-embed";
+@import "bootstrap/wells";
+@import "bootstrap/close";
+
+// Components w/ JavaScript
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+@import "bootstrap/carousel";
+
+// Utility classes
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+
+
+// Jasny
+// Core variables and mixins
+@import "jasny/variables";
+@import "jasny/mixins";
+
+// Core CSS
+@import "jasny/grid-container-smooth";
+@import "jasny/button-labels";
+
+// Components
+@import "jasny/nav-tab-alignment";
+@import "jasny/navmenu";
+@import "jasny/alerts-fixed";
+
+// Components w/ JavaScript
+@import "jasny/offcanvas";
+@import "jasny/rowlink";
+//@import "jasny/fileinput";
+
+
+// Extra stuff...
+@import "bootstrap/forms-errors";
+@import "bootstrap/dropdowns-submenu";
+@import "bootstrap/col-icons";
+
+// Labels
+.label {
+  padding: 2px 4px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+
+  &.label-gray {
+    text-shadow: none;
+    color: #999;
+    @include label-variant(#eee);
+  }
+
+  &.label-inverse {
+    @include label-variant(#333);
+  }
+}
+
+// Forms
+label.input-label {
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+// Nav tabs
+.nav.nav-tabs {
+  margin-bottom: 15px;
+
+  li {
+    > a {
+      padding: 8px 20px;
+      margin-right: 7px;
+      line-height: 20px;
+      border-color: #EEE;
+      color: #888;
+      border-bottom: 1px solid #ddd;
+      .badge {
+        background-color: #eee;
+        color: #888;
+        text-shadow: 0 1px 1px #fff;
+      }
+      i[class^="icon-"] {
+        line-height: 14px;
+      }
+    }
+    &.active {
+      > a {
+        border-color: #CCC;
+        border-bottom: 1px solid #fff;
+        color: #333;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &.nav-small-tabs > li > a {
+    padding: 6px 9px;
+  }
+}
+
+.nav-tabs > li > a,
+.nav-pills > li > a {
+  color: #666;
+}
+
+.nav-small > li > a {
+  padding: 3px 5px;
+  font-size: 12px;
+}
+
+
+/*
+ * Callouts from Bootstrap3 docs
+ *
+ * Not quite alerts, but custom and helpful notes for folks reading the docs.
+ * Requires a base and modifier class.
+ */
+
+/* Common styles for all types */
+.bs-callout {
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 3px solid #eee;
+  color: #666;
+  background: #f9f9f9;
+}
+.bs-callout h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* Variations */
+.bs-callout-danger {
+  background-color: #fdf7f7;
+  border-color: #eed3d7;
+  color: #b94a48;
+}
+.bs-callout-warning {
+  background-color: #faf8f0;
+  border-color: #faebcc;
+  color: #8a6d3b;
+}
+.bs-callout-info {
+  background-color: #f4f8fa;
+  border-color: #bce8f1;
+  color: #34789a;
+}
+.bs-callout-success {
+  background-color: #dff0d8;
+  border-color: #5cA64d;
+  color: #3c763d;
+}
+
+// Breadcrumb
+ul.breadcrumb {
+  background: white;
+  border: none;
+  li {
+    display: inline;
+    text-shadow: 0 1px 0 white
+  }
+
+  a {
+    font-size: 16px;
+  }
+}
+
+
+/**
+ * fix to keep tooltips position in top navigation bar
+ *
+ */
+.navbar .nav > li {
+  position: relative;
+  white-space: nowrap;
+}
+
+
+// checkbox-button inputs are hidden
+.checkbox-button input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+
+/**
+ * added secondary
+ *
+ */
+$brand-secondary:       #ee7d32 !default;
+
+$btn-secondary-color:            #fff !default;
+$btn-secondary-bg:               $brand-secondary !default;
+$btn-secondary-border:           darken($btn-secondary-bg, 5%) !default;
+
+.btn-secondary {
+  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+
+$label-secondary-bg:          $brand-secondary !default;
+
+.label-secondary {
+  @include label-variant($label-secondary-bg);
+}
+
+/* Added button colors as a theme (by Kronuz) */
+$btn-green-bg: rgb(52, 137, 96);
+$btn-red-bg: rgb(253, 104, 91);
+$btn-blue-bg: rgb(114, 143, 191);
+$btn-ocean-bg: rgb(114, 191, 188);
+$btn-yellow-bg: rgb(246, 186, 120);
+$btn-orange-bg: rgb(246, 140, 90);
+$btn-grey-bg: rgb(156, 149, 134);
+$btn-black-bg: rgb(60, 60, 60);
+
+.btn-green { @include button-variant(#fff, $btn-green-bg, darken($btn-green-bg, 5%)); }
+.btn-red { @include button-variant(#fff, $btn-red-bg, darken($btn-red-bg, 5%)); }
+.btn-blue { @include button-variant(#fff, $btn-blue-bg, darken($btn-blue-bg, 5%)); }
+.btn-ocean { @include button-variant(#fff, $btn-ocean-bg, darken($btn-ocean-bg, 5%)); }
+.btn-yellow { @include button-variant(#fff, $btn-yellow-bg, darken($btn-yellow-bg, 5%)); }
+.btn-orange { @include button-variant(#fff, $btn-orange-bg, darken($btn-orange-bg, 5%)); }
+.btn-grey { @include button-variant(#fff, $btn-grey-bg, darken($btn-grey-bg, 5%)); }
+.btn-black { @include button-variant(#fff, $btn-black-bg, darken($btn-black-bg, 5%)); }
+
+
+/* Added default alerts */
+$state-default-text:                #666666 !default;
+$state-default-bg:                  #fefefe !default;
+$state-default-border:              darken(adjust-hue($state-default-bg, -10), 7%) !default;
+
+$alert-default-bg:            $state-default-bg !default;
+$alert-default-text:          $state-default-text !default;
+$alert-default-border:        $state-default-border !default;
+
+.alert-default {
+  @include alert-variant($alert-default-bg, $alert-default-border, $alert-default-text);
+}
+
+// hotfix for logo cropping in Linux Chrome
+nav.navbar .navbar-brand {
+ -webkit-transform: translate3d(0,0,0);
+}

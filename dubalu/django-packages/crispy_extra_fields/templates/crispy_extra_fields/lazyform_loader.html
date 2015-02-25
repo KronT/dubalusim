@@ -1,0 +1,21 @@
+{% if  tag == "button" %}
+	<button type="button" {% if field_classes %}class="{{ field_classes }}"{% endif %} {{ flat_attrs|safe }}>
+{%  elif  tag == "div" %}
+	<div {% if field_classes %}class="{{ field_classes }}"{% endif %} {{ flat_attrs|safe }}>
+{% else %}
+	<a href="javascript:;" {% if field_classes %}class="{{ field_classes }}"{% endif %} {{ flat_attrs|safe }}>
+{% endif %}
+	{% if not icon_class %}
+		{{ value|safe }}
+	{% elif icon_first %}
+		<i class="{{ icon_class }}"></i> {{ value|safe }}
+	{% else %}
+		{{ value|safe }} <i class="{{ icon_class }}"></i>
+	{% endif %}
+{% if  tag =="button" %}
+	</button>
+{%  elif  tag == "div" %}
+	</div>
+{% else %}
+	</a>
+{% endif %}

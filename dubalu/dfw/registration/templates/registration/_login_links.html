@@ -1,0 +1,11 @@
+{% load i18n %}
+
+<div class="forgot">
+	<span>{% trans "Forgot password?" %}</span>
+	<a href="{% url 'password_reset' %}">{% trans "Reset it!" %}</a>
+</div>
+
+<div class="forgot">
+	<span>{% trans "Don't have an account?" %}</span>
+	<a href="{% url 'registration_register' %}">{% trans "Sign up!" %}</a>
+</div>

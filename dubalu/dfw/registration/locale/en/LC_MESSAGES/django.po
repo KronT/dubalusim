@@ -1,0 +1,490 @@
+# Spanish translation for django-registration.
+# Copyright (C) 2007, James Bennet
+# This file is distributed under the same license as the registration package.
+# Ernesto Rico Schmidt <e.rico.schmidt@gmail.com>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: django-registration 0.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-07-26 13:03-0600\n"
+"Last-Translator: German M. Bravo <german.mb@deipi.com>\n"
+"Language-Team: Español <de@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+
+#: admin.py:35
+msgid "Activate users"
+msgstr "Activate users"
+
+#: admin.py:52
+msgid "Re-send activation emails"
+msgstr "Re-send activation emails"
+
+#: forms.py:46
+#, python-format
+msgid ""
+"Please enter a correct %(username)s and password. Note that both fields may "
+"be case-sensitive."
+msgstr ""
+"Please enter a correct %(username)s and password. Note that both fields may "
+"be case-sensitive."
+
+#: forms.py:48
+msgid "This account is inactive."
+msgstr "This account is inactive."
+
+#: forms.py:68
+msgid "Password"
+msgstr "Password"
+
+#: forms.py:110
+msgid "Remember Me"
+msgstr "Remember Me"
+
+#: forms.py:134
+#, fuzzy
+msgid "New Password"
+msgstr "Password"
+
+#: forms.py:137
+msgid "Password (again)"
+msgstr "Password (again)"
+
+#: forms.py:156
+msgid "The two password fields didn't match."
+msgstr "The two password fields didn't match."
+
+#: forms.py:169
+msgid "User already registered."
+msgstr "User already registered."
+
+#: forms.py:182
+msgid "I have read and agree to the Terms of Service"
+msgstr "I have read and agree to the Terms of Service"
+
+#: forms.py:184
+#, python-format
+msgid ""
+"I have read and agree to the <a href=\"%(terms_url)s\" target=\"_blank"
+"\">Terms of Service</a>"
+msgstr ""
+"I have read and agree to the <a href=\"%(terms_url)s\" target=\"_blank"
+"\">Terms of Service</a>"
+
+#: forms.py:194
+msgid "Full Name"
+msgstr "Full Name"
+
+#: forms.py:197
+msgid "You must agree to the terms to register"
+msgstr "You must agree to the terms to register"
+
+#: forms.py:218
+msgid ""
+"This email address is already in use. Please supply a different email "
+"address."
+msgstr ""
+"This email address is already in use. Please supply a different email "
+"address."
+
+#: forms.py:246
+msgid ""
+"Registration using free email addresses is prohibited. Please supply a "
+"different email address."
+msgstr ""
+"Registration using free email addresses is prohibited. Please supply a "
+"different email address."
+
+#: forms.py:251
+msgid "Email"
+msgstr "Email"
+
+#: models.py:196
+msgid "user"
+msgstr "user"
+
+#: models.py:197
+msgid "activation key"
+msgstr "activation key"
+
+#: models.py:202
+msgid "registration profile"
+msgstr "registration profile"
+
+#: models.py:203
+msgid "registration profiles"
+msgstr "registration profiles"
+
+#: sections.py:21
+msgid "Sign up"
+msgstr "Sign up"
+
+#: sections.py:28
+msgid "Sign in"
+msgstr "Sign in"
+
+#: sections.py:35
+msgid "Sign out"
+msgstr "Sign out"
+
+#: sections.py:48
+msgid "Registration"
+msgstr "Registration"
+
+#: templates/registration/_login_links.html:4
+msgid "Forgot password?"
+msgstr "Forgot password?"
+
+#: templates/registration/_login_links.html:5
+msgid "Reset it!"
+msgstr "Reset it!"
+
+#: templates/registration/_login_links.html:9
+#: templates/registration/_password_reset_form_links.html:4
+msgid "Don't have an account?"
+msgstr "Don't have an account?"
+
+#: templates/registration/_login_links.html:10
+#: templates/registration/_password_reset_form_links.html:5
+msgid "Sign up!"
+msgstr "Sign up!"
+
+#: templates/registration/_password_reset_form_links.html:9
+#: templates/registration/_registration_form_links.html:4
+msgid "Already have an account?"
+msgstr "Already have an account?"
+
+#: templates/registration/_password_reset_form_links.html:10
+#: templates/registration/_registration_form_links.html:5
+msgid "Sign in!"
+msgstr "Sign in!"
+
+#: templates/registration/activate.html:11
+msgid "Activated!"
+msgstr "Activated!"
+
+#: templates/registration/activate.html:12
+msgid "Your account is now active. Welcome!"
+msgstr "Your account is now active. Welcome!"
+
+#: templates/registration/activate.html:14
+#, python-format
+msgid "<a href=\"%(login_url)s\">Sign In</a>"
+msgstr "<a href=\"%(login_url)s\">Sign In</a>"
+
+#: templates/registration/activate.html:17
+msgid "Activaton Failed!"
+msgstr "Activaton Failed!"
+
+#: templates/registration/activate.html:18
+msgid ""
+"Perhaps your activation key is too old or the account has already been "
+"activated."
+msgstr ""
+"Perhaps your activation key is too old or the account has already been "
+"activated."
+
+#: templates/registration/activation_email.html:5
+#: templates/registration/activation_email_subject.txt:2
+#, python-format
+msgctxt "fem"
+msgid "Welcome to %(SITE_NAME)s"
+msgstr "Welcome to %(SITE_NAME)s"
+
+#: templates/registration/activation_email.html:5
+#: templates/registration/activation_email_subject.txt:2
+#, python-format
+msgctxt "mas"
+msgid "Welcome to %(SITE_NAME)s"
+msgstr "Welcome to %(SITE_NAME)s"
+
+#: templates/registration/activation_email.html:5
+#: templates/registration/activation_email_subject.txt:2
+#, python-format
+msgid "Welcome to %(SITE_NAME)s"
+msgstr "Welcome to %(SITE_NAME)s"
+
+#: templates/registration/activation_email.html:8
+#: templates/registration/activation_email.txt:3
+#, python-format
+msgid "This is your activation email for %(SITE_NAME)s"
+msgstr "This is your activation email for %(SITE_NAME)s"
+
+#: templates/registration/activation_email.html:11
+#: templates/registration/activation_email.txt:5
+#, python-format
+msgctxt "fem"
+msgid "Thank you for signing up at %(SITE_NAME)s!"
+msgstr "Thank you for signing up at %(SITE_NAME)s!"
+
+#: templates/registration/activation_email.html:11
+#: templates/registration/activation_email.txt:5
+#, python-format
+msgctxt "mas"
+msgid "Thank you for signing up at %(SITE_NAME)s!"
+msgstr "Thank you for signing up at %(SITE_NAME)s!"
+
+#: templates/registration/activation_email.html:11
+#: templates/registration/activation_email.txt:5
+#, python-format
+msgid "Thank you for signing up at %(SITE_NAME)s!"
+msgstr "Thank you for signing up at %(SITE_NAME)s!"
+
+#: templates/registration/activation_email.html:14
+#, python-format
+msgid ""
+"<p><strong>Activate your account, otherwise it will expire in "
+"%(expiration_days)s days.</strong></p>\n"
+"\t<p>To activate your account, please click the link below:</p>\n"
+"\n"
+"\t<p><a style=\"color:%(BASE_COLOR)s;\" href=\"%(activation_url)s\">"
+"%(activation_url)s</a></p>\n"
+"\n"
+"\t<p>We hope you enjoy the %(SITE_NAME)s experience!</p>"
+msgstr ""
+"<p><strong>Activate your account, otherwise it will expire in "
+"%(expiration_days)s days.</strong></p>\n"
+"\t<p>To activate your account, please click the link below:</p>\n"
+"\n"
+"\t<p><a style=\"color:%(BASE_COLOR)s;\" href=\"%(activation_url)s\">"
+"%(activation_url)s</a></p>\n"
+"\n"
+"\t<p>We hope you enjoy the %(SITE_NAME)s experience!</p>"
+
+#: templates/registration/activation_email.txt:8
+#, python-format
+msgid ""
+"Activate your account, otherwise it will expire in %(expiration_days)s "
+"days.\n"
+"To activate your account, please visit the link below:\n"
+"\n"
+"%(activation_url)s\n"
+"\n"
+"We hope you enjoy the %(SITE_NAME)s experience!"
+msgstr ""
+"Activate your account, otherwise it will expire in %(expiration_days)s "
+"days.\n"
+"To activate your account, please visit the link below:\n"
+"\n"
+"%(activation_url)s\n"
+"\n"
+"We hope you enjoy the %(SITE_NAME)s experience!"
+
+#: templates/registration/activation_email.txt:15
+#, python-format
+msgid ""
+"\n"
+"Sincerely,\n"
+"The %(SITE_NAME)s Team\n"
+"%(SITE_URL)s\n"
+msgstr ""
+"\n"
+"Sincerely,\n"
+"The %(SITE_NAME)s Team\n"
+"%(SITE_URL)s\n"
+
+#: templates/registration/login.html:9
+#: templates/registration/password_reset_complete.html:8
+msgid "Log in"
+msgstr "Log in"
+
+#: templates/registration/logout.html:5
+msgid "Logged out"
+msgstr "Logged out"
+
+#: templates/registration/password_change_done.html:5
+msgid "Password changed"
+msgstr "Password changed"
+
+#: templates/registration/password_change_form.html:9
+#: templates/registration/password_reset_confirm.html:12
+#: templates/registration/password_reset_form.html:9
+#: templates/registration/registration_form.html:9
+msgid "Submit"
+msgstr "Submit"
+
+#: templates/registration/password_reset_complete.html:6
+msgid "Password reset successfully"
+msgstr "Password reset successfully"
+
+#: templates/registration/password_reset_confirm.html:17
+msgid "Password reset failed"
+msgstr "Password reset failed"
+
+#: templates/registration/password_reset_done.html:5
+msgid "Email with password reset instructions has been sent."
+msgstr "Email with password reset instructions has been sent."
+
+#: templates/registration/password_reset_email.html:4
+#, python-format
+msgid "Password reset for %(SITE_NAME)s"
+msgstr "Password reset for %(SITE_NAME)s"
+
+#: templates/registration/password_reset_email.html:7
+#: templates/registration/password_reset_email.txt:5
+#, python-format
+msgid ""
+"You're receiving this e-mail because you requested a password reset for your "
+"user account at %(SITE_NAME)s."
+msgstr ""
+"You're receiving this e-mail because you requested a password reset for your "
+"user account at %(SITE_NAME)s."
+
+#: templates/registration/password_reset_email.html:10
+#: templates/registration/password_reset_email.txt:8
+msgid "Please go to the following page and choose a new password:"
+msgstr "Please go to the following page and choose a new password:"
+
+#: templates/registration/password_reset_email.html:13
+#: templates/registration/password_reset_email.txt:11
+msgid "Thanks for using our site!"
+msgstr "Thanks for using our site!"
+
+#: templates/registration/password_reset_email.txt:13
+#, python-format
+msgid ""
+"Sincerely,\n"
+"    The %(SITE_NAME)s Team\n"
+"    %(SITE_URL)s"
+msgstr ""
+"Sincerely,\n"
+"    The %(SITE_NAME)s Team\n"
+"    %(SITE_URL)s"
+
+#: templates/registration/password_reset_email_subject.txt:1
+#, python-format
+msgid "%(SITE_NAME)s password reset"
+msgstr "%(SITE_NAME)s password reset"
+
+#: templates/registration/registration_closed.html:5
+msgid "Registration is currently closed."
+msgstr "Registration is currently closed."
+
+#: templates/registration/registration_complete.html:5
+msgid "You are now registered. Activation email sent."
+msgstr "You are now registered. Activation email sent."
+
+#, fuzzy
+#~ msgid "Sugn up!"
+#~ msgstr "Sign up!"
+
+#, fuzzy
+#~ msgid ""
+#~ "<p>\n"
+#~ "\t\tSincerely,<br />\n"
+#~ "\t\t<strong>The %(SITE_NAME)s Team</strong><br />\n"
+#~ "\t\t<a style=\"color:%(BASE_COLOR)s;\" href=\"%(SITE_URL)s\">"
+#~ "%(SITE_URL)s</a>\n"
+#~ "\t</p>"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "\t\t\t\t\tSincerely,<br />\n"
+#~ "\t\t\t\t\t<strong>The %(SITE_NAME)s Team</strong><br />\n"
+#~ "\t\t\t\t\t<a style=\"color:%(BASE_COLOR)s;\" href=\"%(SITE_URL)s\">"
+#~ "%(SITE_URL)s</a>\n"
+#~ "\t\t\t\t</p>"
+
+#, fuzzy
+#~ msgctxt "fem"
+#~ msgid ""
+#~ "Dear %(full_name)s,\n"
+#~ "Thank you for your payment at %(SITE_NAME)s!"
+#~ msgstr ""
+#~ "<h2>Dear %(full_name)s,</h2>\n"
+#~ "\t\t\t\t<h1 style=\"color:%(BASE_COLOR)s;\">Thank you for signing up at "
+#~ "%(SITE_NAME)s!</h1>"
+
+#, fuzzy
+#~ msgctxt "mas"
+#~ msgid ""
+#~ "Dear %(full_name)s,\n"
+#~ "Thank you for your payment at %(SITE_NAME)s!"
+#~ msgstr ""
+#~ "<h2>Dear %(full_name)s,</h2>\n"
+#~ "\t\t\t\t<h1 style=\"color:%(BASE_COLOR)s;\">Thank you for signing up at "
+#~ "%(SITE_NAME)s!</h1>"
+
+#, fuzzy
+#~ msgid ""
+#~ "Dear %(full_name)s,\n"
+#~ "Thank you for your payment at %(SITE_NAME)s!"
+#~ msgstr ""
+#~ "<h2>Dear %(full_name)s,</h2>\n"
+#~ "\t\t\t\t<h1 style=\"color:%(BASE_COLOR)s;\">Thank you for signing up at "
+#~ "%(SITE_NAME)s!</h1>"
+
+#, fuzzy
+#~ msgid "Register!"
+#~ msgstr "Register!"
+
+#~ msgctxt "fem"
+#~ msgid "Welcome to"
+#~ msgstr "Welcome to"
+
+#~ msgctxt "mas"
+#~ msgid "Welcome to"
+#~ msgstr "Welcome to"
+
+#~ msgid "Welcome to"
+#~ msgstr "Welcome to"
+
+#, fuzzy
+#~ msgctxt "fem"
+#~ msgid ""
+#~ "<h2>Dear %(full_name)s,</h2>\n"
+#~ "\t<h1 style=\"color:%(BASE_COLOR)s;\">Thank you for signing up at "
+#~ "%(SITE_NAME)s!</h1>"
+#~ msgstr ""
+#~ "<h2>Dear %(full_name)s,</h2>\n"
+#~ "\t\t\t\t<h1 style=\"color:%(BASE_COLOR)s;\">Thank you for signing up at "
+#~ "%(SITE_NAME)s!</h1>"
+
+#, fuzzy
+#~ msgctxt "mas"
+#~ msgid ""
+#~ "<h2>Dear %(full_name)s,</h2>\n"
+#~ "\t<h1 style=\"color:%(BASE_COLOR)s;\">Thank you for signing up at "
+#~ "%(SITE_NAME)s!</h1>"
+#~ msgstr ""
+#~ "<h2>Dear %(full_name)s,</h2>\n"
+#~ "\t\t\t\t<h1 style=\"color:%(BASE_COLOR)s;\">Thank you for signing up at "
+#~ "%(SITE_NAME)s!</h1>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<h2>Dear %(full_name)s,</h2>\n"
+#~ "\t<h1 style=\"color:%(BASE_COLOR)s;\">Thank you for signing up at "
+#~ "%(SITE_NAME)s!</h1>"
+#~ msgstr ""
+#~ "<h2>Dear %(full_name)s,</h2>\n"
+#~ "\t\t\t\t<h1 style=\"color:%(BASE_COLOR)s;\">Thank you for signing up at "
+#~ "%(SITE_NAME)s!</h1>"
+
+#~ msgid "Not member"
+#~ msgstr "Not member"
+
+#~ msgid "Activate account at"
+#~ msgstr "Activate account at"
+
+#~ msgid "Link is valid for %(expiration_days)s days."
+#~ msgstr "Link is valid for %(expiration_days)s days."
+
+#~ msgid "username"
+#~ msgstr "username"
+
+#~ msgid "email address"
+#~ msgstr "email address"
+
+#~ msgid "Usernames can only contain letters, numbers and underscores"
+#~ msgstr "Usernames can only contain letters, numbers and underscores"
+
+#~ msgid "This username is already taken. Please choose another."
+#~ msgstr "This username is already taken. Please choose another."
+
+#~ msgid "You must type the same password each time"
+#~ msgstr "You must type the same password each time"

@@ -1,0 +1,22 @@
+{% extends "registration/registration_base.html" %}
+
+{% load i18n %}
+{% load assets %}
+
+{% block content %}
+<div id="{% if account %}activation_complete{% else %}activation_failed{% endif %}" class="status-page">
+	<div class="container">
+		{% if account %}
+			{% url 'login' as login_url %}
+			<h1 class="title">{% blocktrans %}Activated!{% endblocktrans %}</h1>
+			<p class="subtitle">{% blocktrans %}Your account is now active. Welcome!{% endblocktrans %}</p>
+			{% if request.user.is_anonymous %}
+				<p class="subtitle">{% blocktrans %}<a href="{{ login_url }}">Sign In</a>{% endblocktrans %}</p>
+			{% endif %}
+		{% else %}
+			<h1 class="title">{% blocktrans %}Activaton Failed!{% endblocktrans %}</h1>
+			<p class="subtitle">{% blocktrans %}Perhaps your activation key is too old or the account has already been activated.{% endblocktrans %}</p>
+		{% endif %}
+	  </div>
+</div>
+{% endblock %}

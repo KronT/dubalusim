@@ -1,0 +1,4 @@
+<{{ tag }} {% if div.css_id %}id="{{ div.css_id }}"{% endif %}
+    {% if css_class %}class="{{ css_class }}{% if active %} active{% endif %}"{% endif %} {{ flat_attrs|safe }}>
+       {{ fields|safe }}
+</{{ tag }}>

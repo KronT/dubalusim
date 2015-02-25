@@ -1,0 +1,2 @@
+{% load i18n %}
+{% if gender == 'F' %}{% blocktrans context "fem" %}Welcome to {{ SITE_NAME }}{% endblocktrans %}{% elif gender == 'M' %}{% blocktrans context "mas" %}Welcome to {{ SITE_NAME }}{% endblocktrans %}{% else %}{% blocktrans %}Welcome to {{ SITE_NAME }}{% endblocktrans %}{% endif %}

@@ -1,0 +1,102 @@
+/* Font Dubalu uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+
+.bg-#{$fa-css-prefix}-white:after { color: white; }
+.bg-#{$fa-css-prefix}-black:after { color: black; }
+.bg-#{$fa-css-prefix}-red:after { color: red; }
+.bg-#{$fa-css-prefix}-green:after { color: green; }
+.bg-#{$fa-css-prefix}-blue:after { color: blue; }
+.bg-#{$fa-css-prefix}-yellow:after { color: yellow; }
+.bg-#{$fa-css-prefix}-cyan:after { color: cyan; }
+.bg-#{$fa-css-prefix}-magenta:after { color: magenta; }
+.bg-#{$fa-css-prefix}-darkmagenta:after { color: darkmagenta; }
+.bg-#{$fa-css-prefix}-orange:after { color: orange; }
+.bg-#{$fa-css-prefix}-darkorange:after { color: darkorange; }
+
+.bg-#{$fa-css-prefix}:before { position: absolute; }
+
+$aliases: (
+	'fa-times': 'fa-remove' 'fa-close',
+	'fa-cog': 'fa-gear',
+	'fa-repeat': 'fa-rotate-right',
+	'fa-outdent': 'fa-dedent',
+	'fa-pencil-square-o': 'fa-edit',
+	'fa-share': 'fa-mail-forward',
+	'fa-exclamation-triangle': 'fa-warning',
+	'fa-cogs': 'fa-gears',
+	'fa-users': 'fa-group',
+	'fa-scissors': 'fa-cut',
+	'fa-files-o': 'fa-copy',
+	'fa-floppy-o': 'fa-save',
+	'fa-sort': 'fa-unsorted',
+	'fa-sort-asc': 'fa-sort-down',
+	'fa-sort-desc': 'fa-sort-up',
+	'fa-undo': 'fa-rotate-left',
+	'fa-gavel': 'fa-legal',
+	'fa-tachometer': 'fa-dashboard',
+	'fa-bolt': 'fa-flash',
+	'fa-clipboard': 'fa-paste',
+	'fa-mobile': 'fa-mobile-phone',
+	'fa-reply': 'fa-mail-reply',
+	'fa-star-half-o': 'fa-star-half-empty' 'fa-star-half-full',
+	'fa-chain-broken': 'fa-unlink',
+	'fa-caret-square-o-down': 'fa-toggle-down',
+	'fa-caret-square-o-up': 'fa-toggle-up',
+	'fa-caret-square-o-right': 'fa-toggle-right',
+	'fa-caret-square-o-left': 'fa-toggle-left',
+	'fa-eur': 'fa-euro',
+	'fa-usd': 'fa-dollar',
+	'fa-inr': 'fa-rupee',
+	'fa-jpy': 'fa-cny' 'fa-rmb' 'fa-yen',
+	'fa-rub': 'fa-ruble' 'fa-rouble',
+	'fa-krw': 'fa-won',
+	'fa-btc': 'fa-bitcoin',
+	'fa-try': 'fa-turkish-lira',
+
+	'fa-home': 'icon-home',
+	'fa-search': 'icon-search',
+	'fa-book': 'icon-book',
+	'fa-caret-down': 'icon-caret-down',
+	'fa-github': 'icon-github',
+	'fa-bitbucket': 'icon-bitbucket',
+	'fa-fire': 'icon-fire',
+	'fa-circle-arrow-right': 'icon-circle-arrow-right',
+	'fa-arrow-circle-left': 'icon-arrow-circle-left',
+
+	'fa-link': 'icon-link' 'fa-chain' 'headerlink',
+);
+
+@mixin glyph-content($fa-font, $glyph, $alias) {
+	$code: glyph-code($fa-font, $glyph);
+	.#{$alias}:before,
+	.bg-#{$alias}:after {
+		content: $code;
+	}
+	.#{$alias} {
+		*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerText = '#{$code}'); // IE compatibility
+	}
+}
+
+@each $glyph in glyphs($fa-font) {
+	@include glyph-content($fa-font, $glyph, $glyph);
+	$current-aliases: map-get($aliases, $glyph);
+	@if $current-aliases {
+		@each $alias in $current-aliases {
+			@include glyph-content($fa-font, $glyph, $alias);
+		}
+	}
+}
+
+// Sphinx RST theme:
+.note, .seealso {
+	@include glyph-content($fa-font, 'fa-info-circle', 'admonition-title');
+}
+.hint, .tip {
+	@include glyph-content($fa-font, 'fa-exclamation-circle', 'admonition-title');
+}
+.error, .danger {
+	@include glyph-content($fa-font, 'fa-times-circle', 'admonition-title');
+}
+.warning, .caution, .attention, .important {
+	@include glyph-content($fa-font, 'fa-exclamation-triangle', 'admonition-title');
+}

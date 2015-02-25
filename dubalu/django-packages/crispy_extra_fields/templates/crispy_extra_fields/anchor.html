@@ -1,0 +1,7 @@
+<a
+	{% if field_classes %}
+		class="{{ field_classes }}"
+	{% endif %}
+	{{ flat_attrs|safe }}>
+	{{ text|safe }}
+</a>

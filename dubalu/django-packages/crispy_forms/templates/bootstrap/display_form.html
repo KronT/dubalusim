@@ -1,0 +1,8 @@
+{% if form_html %}
+    {% if form_show_errors %}
+        {% include "bootstrap/errors.html" %}
+    {% endif %}
+    {{ form_html }}
+{% else %}
+    {% include "bootstrap/crispy_form.html" %}
+{% endif %}

@@ -1,0 +1,8 @@
+@import "yui/modules/base.sass";
+@import "yui/modules/fonts.sass";
+@import "yui/modules/grids.sass";
+
+@mixin yui {
+  @include yui-base;
+  @include yui-base-fonts;
+  @include yui-grids; }

@@ -1,0 +1,15 @@
+//** CSS SLIDESHOWS **//
+
+// Default Settings ----------------------------------------------------------
+
+// The selector for your carousel (relative to your container)
+$slide-carousel : "> div";
+
+// The selector for your slides (relative to your carousel)
+$slide          : "> article";
+
+// The largest number of slides that this container will need to house
+$max-slides     : 10;
+
+// Import --------------------------------------------------------------------
+@import "css-slideshow/slideshow";

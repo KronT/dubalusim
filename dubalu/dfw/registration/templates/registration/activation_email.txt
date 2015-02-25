@@ -1,0 +1,19 @@
+{% load i18n %}
+
+{% blocktrans %}This is your activation email for {{ SITE_NAME }}{% endblocktrans %}
+
+{% if gender == 'F' %}{% blocktrans context "fem" %}Thank you for signing up at {{ SITE_NAME }}!{% endblocktrans %}{% elif gender == 'M' %}{% blocktrans context "mas" %}Thank you for signing up at {{ SITE_NAME }}!{% endblocktrans %}{% else %}{% blocktrans %}Thank you for signing up at {{ SITE_NAME }}!{% endblocktrans %}{% endif %}
+
+{% capture as activation_url %}{{ SITE_SECURE_URL }}{% url 'registration_activate' activation_key %}{% endcapture %}
+{% blocktrans %}Activate your account, otherwise it will expire in {{ expiration_days }} days.
+To activate your account, please visit the link below:
+
+{{ activation_url }}
+
+We hope you enjoy the {{ SITE_NAME }} experience!{% endblocktrans %}
+
+{% blocktrans %}
+Sincerely,
+The {{ SITE_NAME }} Team
+{{ SITE_URL }}
+{% endblocktrans %}
