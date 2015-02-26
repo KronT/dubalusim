@@ -15,7 +15,7 @@ from django.conf.urls import patterns, url
 
 
 urlpatterns = patterns('sample.mysampleapp.views',
-    # url(r'^$', 'item_list', name='item-list'),
+    url(r'^$', 'item_list', name='item-list'),
     url(r'^add/$', 'item_create', name='item-add'),
     # url(r'^detail/(?P<pk>' + settings.ENTITY_PK_PATTERN + ')/$', 'client_detail', name='client-detail'),
     # url(r'^edit/(?P<pk>' + settings.ENTITY_PK_PATTERN + ')/$', 'client_update', name='client-edit'),

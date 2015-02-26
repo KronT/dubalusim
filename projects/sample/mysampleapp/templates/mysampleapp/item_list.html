@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<table>
+		<thead>
+			<tr>
+				<th>{% trans "Name" %}</th>
+				<th>{% trans "Gender" %}</th>
+				<th>{% trans "Age" %}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in object_list %}
+				<tr>
+					<td>{{ item.name }}</td>
+					<td>{{ item.gender }}</td>
+					<td>{{ item.age }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+
+	</table>
+{% endblock content %}
