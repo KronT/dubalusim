@@ -319,8 +319,8 @@ UGLIFYJS_DISABLED = False
 PYSCSS_STYLE = 'compressed'
 PYSCSS_DEBUG_INFO = False
 PYSCSS_LOAD_PATHS = [
-    os.path.join(BASE_DIR, 'dubalu/dfw/static/src/css'),
-    os.path.join(BASE_DIR, 'dubalu/dfw/static/src/sass/frameworks'),
+    os.path.join(BASE_DIR, 'dubalu/dfw/contrib/bundles/static/src/css'),
+    os.path.join(BASE_DIR, 'dubalu/dfw/contrib/bundles/static/src/sass/frameworks'),
 ]
 
 AUTOPREFIXER_BIN = ['node', os.path.join(BASE_DIR, 'lib/js/autoprefixer.js')]
