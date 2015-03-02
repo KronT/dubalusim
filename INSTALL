@@ -1,0 +1,82 @@
+1.- Se creará un entorno virtual con virtualenv el cuál puede ser obtenido de diferentes fuentes del repositorio oficial, esto puede ser opcional:
+
+Se instalará de la siguiente manera:
+
+# Archlinux
+$ sudo pacman -S python2-virtualenv
+
+# Fedora
+$ sudo yum install python-virtualenv
+
+# Debian, Ubuntu
+$ sudo apt-get install python-virtualenv
+
+Usando pip:
+
+# Linux, Mac OS X
+$ sudo pip install virtualenv
+
+# Archlinux
+# (si pip fue instalado usando el gestor de paquetes)
+$ sudo pip2 install virtualenv
+
+# Fedora
+# (si pip fue instalado usando el gestor de paquetes)
+$ sudo pip install virtualenv
+
+
+1.1.- Una vez instalado virtual env proseguiremos a crear un entorno virtual al que yo he llamado DUBALU_django_patched:
+
+$virtualenv DUBALU_django_patched (puedes crearlo donde quieres, incluso podría ser en una carpeta llamada proyectos).
+
+1.1.2.- Se activará el proyecto llendo hacía la carpeta de virtualenv creada y tecleando el siguiente comando:
+
+$ cd DUBALU_django_patched
+$ source bin/activate
+
+1.1.3.- Se instalarán los suguientes paquetes:
+
+$ pip install pip install ipython Pillow ipdb MarkupSafe
+
+1.4.- Se obtendrá de git la versión 1.6 de Django:
+
+$ git clone https://github.com/django/django.git
+
+1.4.1 Estando dentro de la carpeta de django, descargado cambiamos de rama:
+$git checkout remotes/origin/stable/1.6.x
+
+
+1.5.- lo parcharemos:
+
+1.5.1.- Debes asegurarte de tener la herramienta para "parchar" patchutils, en mi caso utilizando fedora:
+$ dnf -y install patch
+
+1.5.2 Copíamos la carpeta de parches a la raíz del entorno virtual, donde deberá estar también django.
+
+1.5.3 Nos desplazamos a la raíz de django y corremos:
+
+$ find "../PATCHES_django-1.6" -maxdepth 1 -name "#*" -print0 | sort -z | xargs -0 -I {} sh -c "echo {}; patch -sup1 < {}"
+
+1.5.4 Y borramos los archivos ocultos que genera el sistema mac:
+
+$ find . \( -name "*.pyc" -o -name "*.orig" -o -name "*.rej" -o -name ".DS_Store" \) -delete
+
+1.7.- Una vez parchado lo instalamos:
+
+$ python setup.py install
+
+1.6.- Se introducirá la carpeta de dubalusim en el virtualenv creado, preferiblemente en la raíz:
+
+$ cp -r /path/a/dubalusim /path/a/DUBALU_django_patched
+
+1.7.- Debemos obetener el siguiente script:
+	https://docs.djangoproject.com/en/1.7/_modules/django/middleware/csrf/
+1.7.1.- Lo colocamos en:
+	
+
+1.8.- Y corremos para probar:
+
+$ python dubalusim/manage.py runserver 
+
+
+
